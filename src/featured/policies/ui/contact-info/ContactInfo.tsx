@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 
 import { LinkIcon } from '@/shared/ui/icons/link';
 import { MessageIcon } from '@/shared/ui/icons/message';
+import { PhoneIcon } from '@/shared/ui/icons/phone';
 
 import st from './ContactInfo.module.scss';
 
@@ -23,10 +24,12 @@ export const ContactInfo = ({ description, title }: { title: string; description
           <Link href="mailto:info@moddle3d.com">info@moddle3d.com</Link>
         </p>
       </span>
-      {/* <span className={st.item}>
+      <span className={st.item}>
         <PhoneIcon />
-        <p>{t('phone', { fallback: 'Phone' })}: [Insert Phone]</p>
-      </span> */}
+        <p>
+          {t('phone', { fallback: 'Phone' })}: <Link href="tel:+48732143539">+48732143539</Link>
+        </p>
+      </span>
       <span className={st.item}>
         <LinkIcon />
         <p>
