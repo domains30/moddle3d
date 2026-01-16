@@ -7,7 +7,6 @@ import { Toaster } from 'sonner';
 
 import { Footer, Header, Preloader } from '@/shared/ui/components';
 import { CookiePopup } from '@/shared/ui/components/cookie-popup';
-import { LenisScrollProvider } from '@/shared/ui/kit';
 
 import '@/shared/lib/styles/null.scss';
 import '@/shared/lib/styles/base.scss';
@@ -48,11 +47,9 @@ export default async function RootLayout({
       <body className={inter.variable}>
         <NextIntlClientProvider>
           <WishlistProvider>
-            <LenisScrollProvider>
-              <Header />
-              {children}
-              <Footer />
-            </LenisScrollProvider>
+            <Header />
+            {children}
+            <Footer />
             <ThanksPopup />
             <Toaster />
             <Preloader />
