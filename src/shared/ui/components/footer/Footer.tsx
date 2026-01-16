@@ -169,7 +169,7 @@ export const Footer = () => {
         </div>
         <div className={styles.footer__bottom}>
           <p>
-            © {year} Moddle sp z o o PL{' '}
+            © {year} Moddle sp z o o PL.{' '}
             {t('copyright', {
               fallback: 'All Legal Rights Reserved.',
             })}

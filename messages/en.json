@@ -238,8 +238,8 @@
     "forgotPassword": "Forgot Password?",
     "loggingIn": "Logging in...",
     "login": "Login",
-    "dontHaveAccount": "Don’t have an account?",
-    "create": "Create"
+    "dontHaveAccount": "First time here?",
+    "create": "Create your account"
   },
   "registrationForm": {
     "success": "You have successfully registered. Please login to continue.",

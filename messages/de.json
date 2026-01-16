@@ -373,9 +373,9 @@
     "title": "Lassen Sie uns gemeinsam etwas Episches schaffen"
   },
   "loginForm": {
-    "create": "erstellen.",
+    "create": "Erstellen Sie Ihr Konto",
     "description": "Bist du bereit, wieder in die Welt der 3D-Magie einzutauchen? Gib einfach deinen Benutzernamen, deine E-Mail-Adresse und dein Passwort ein, um loszulegen! Hast du dein Passwort vergessen? Kein Problem, klick einfach auf \"Passwort vergessen?\" und wir helfen dir weiter!",
-    "dontHaveAccount": "Sie haben noch kein Konto?",
+    "dontHaveAccount": "Prima volta hier?",
     "email": "E-Mail",
     "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.",
     "forgotPassword": "Passwort vergessen?",

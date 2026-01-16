@@ -51,7 +51,7 @@ export const FeaturedCategories = ({ category }: { category: ProductCategory }) 
             </div>
           ) : (
             <div className={styles.featuredCategory__products}>
-              {products.map((product) => (
+              {products.slice(0, 4).map((product) => (
                 <ProductCard key={product.id} {...product} />
               ))}
             </div>

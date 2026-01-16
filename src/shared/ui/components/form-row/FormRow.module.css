@@ -7,4 +7,10 @@
   @media (max-width: 768px) {
     flex-direction: column;
   }
+  >div{
+    width: 50%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
 }

@@ -76,8 +76,8 @@ export const LoginForm = () => {
             : t('login', { fallback: 'Login' })}
         </Btn>
         <Link href="/registration" className={st.link}>
-          {t('dontHaveAccount', { fallback: 'Don’t have an account?' })}{' '}
-          <span>{t('create', { fallback: 'Create' })}</span>
+          {t('dontHaveAccount', { fallback: 'First time here?' })}{' '}
+          <span>{t('create', { fallback: 'Create your account' })}</span>
         </Link>
       </div>
     </form>
