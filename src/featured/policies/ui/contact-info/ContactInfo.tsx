@@ -16,10 +16,13 @@ export const ContactInfo = ({ description, title }: { title: string; description
     <section className={st.layout}>
       <h3 className={st.title}>{title}</h3>
       {description && <p className={st.description}>{description}</p>}
-      <Link href="mailto:info@moddle3d.com" className={st.item}>
+      <span className={st.item}>
         <MessageIcon />
-        <p>{t('email', { fallback: 'Email' })}: info@moddle3d.com</p>
-      </Link>
+        <p>
+          {t('email', { fallback: 'Email' })}:{' '}
+          <Link href="mailto:info@moddle3d.com">info@moddle3d.com</Link>
+        </p>
+      </span>
       {/* <span className={st.item}>
         <PhoneIcon />
         <p>{t('phone', { fallback: 'Phone' })}: [Insert Phone]</p>

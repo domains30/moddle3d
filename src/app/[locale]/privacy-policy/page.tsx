@@ -24,7 +24,10 @@ export default async function PrivacyPolicyPage({
         <ContactInfo
           title={t('contactTitle', { fallback: 'Contact Information' })}
           description={t('contactDescription', {
-            fallback: 'For any questions, contact us at:',
+            fallback: t('contactDescriptionPrivacyPolicy', {
+              fallback:
+                'If you have any questions about this Privacy Policy, please contact us at:',
+            }),
           })}
         />
       </Layout>

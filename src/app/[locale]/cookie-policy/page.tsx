@@ -24,7 +24,10 @@ export default async function CookiePolicyPage({
         <ContactInfo
           title={t('contactTitle', { fallback: 'Contact Information' })}
           description={t('contactDescription', {
-            fallback: 'For any questions, contact us at:',
+            fallback: t('contactDescriptionCookiePolicy', {
+              fallback:
+                'If you have questions regarding this Cookie Policy, you can contact us at:',
+            }),
           })}
         />
       </Layout>

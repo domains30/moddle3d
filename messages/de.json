@@ -189,7 +189,11 @@
   "contactInfoPolicy": { "email": "E-Mail", "phone": "Telefon", "website": "Website" },
   "cookiePolicy": {
     "contactDescription": "Bei Fragen können Sie uns unter folgender Adresse erreichen:",
-    "contactTitle": "Kontaktinformationen"
+    "contactTitle": "Kontaktinformationen",
+    "contactDescriptionCookiePolicy": "Wenn Sie Fragen zu dieser Cookie-Richtlinie haben, können Sie uns unter folgender Adresse erreichen:",
+    "contactDescriptionPrivacyPolicy": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, können Sie uns unter folgender Adresse erreichen:",
+    "contactDescriptionRefundPolicy": "Wenn Sie Fragen zu dieser Erstattungsrichtlinie haben, können Sie uns unter folgender Adresse erreichen:",
+    "contactDescriptionTermsAndConditions": "Wenn Sie Fragen zu diesen Allgemeinen Geschäftsbedingungen haben, können Sie uns unter folgender Adresse erreichen:"
   },
   "cookiePopup": {
     "accept": "Akzeptieren",
