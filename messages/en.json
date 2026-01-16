@@ -59,6 +59,7 @@
     "title": "Get in Touch: Let’s Make Something Incredible!",
     "description": "Got a question, a project idea, or need a custom quote? Don’t be shy — we’re all ears! At Moddle 3D, we believe every great project begins with a conversation. Reach out to us and let’s turn your wildest ideas into digital masterpieces!",
     "detailsTitle": "How to Reach Us",
+    "registeredAddress": "Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland",
     "socialsTitle": "Stay Social",
     "socialsDescription": "We’re always creating, and we want you to be part of it! Follow us on social media for the latest on our projects, industry trends, and some serious creative inspo. Get involved, stay updated, and let’s start something amazing!",
     "title2": "Ready to Make Some Magic Happen?",
@@ -417,7 +418,7 @@
     "infoOfficeTitle": "Office address:",
     "infoOfficeAddress": "address",
     "infoRegisteredTitle": "Registered address:",
-    "infoRegisteredAddress": "address",
+    "infoRegisteredAddress": "Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland",
     "copyright": "All Legal Rights Reserved."
   },
   "header": {

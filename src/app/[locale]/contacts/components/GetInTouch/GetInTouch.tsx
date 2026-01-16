@@ -53,17 +53,39 @@ export const GetInTouch = () => {
                 className={'alignLeft'}
               />
               <div className={styles.addressWrapper}>
-                {/* <div>
-                <Link href="tel:+1 000 000 000">
-                  <Image src="/images/phone.svg" alt="phone" width={20} height={20} />
-                  <span>[+1 000 000 000]</span>
-                </Link>
-              </div> */}
+                <div>
+                  <Link href="tel:+48732143539" className={styles.contactWrapper}>
+                    <Image src="/images/phone.svg" alt="phone" width={20} height={20} />
+                    <span className={styles.contact}>+48732143539</span>
+                  </Link>
+                </div>
                 <div>
                   <Link href="mailto:info@moddle3d.com" className={styles.contactWrapper}>
                     <Image src="/images/email.svg" alt="email" width={20} height={20} />
                     <span className={styles.contact}>info@moddle3d.com</span>
                   </Link>
+                </div>
+                <div className={styles.addressItem}>
+                  <p className={styles.contactWrapper}>
+                    <Image src="/images/registered.svg" alt="registered" width={20} height={20} />
+                    <span className={styles.contact}>
+                      {t('registeredAddress', {
+                        fallback:
+                          'Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland',
+                      })}
+                    </span>
+                  </p>
+                  <div className={styles.map}>
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.0242593003413!2d21.0038845762096!3d52.224777058045625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd7524a26f99%3A0x8eea62459eb593d!2sHo%C5%BCa%2086%2C%2000-682%20Warszawa%2C%20Poland!5e0!3m2!1sen!2sua!4v1768565349847!5m2!1sen!2sua"
+                      width="600"
+                      height="150"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
                 </div>
                 {/* <div>
                 <p>
@@ -74,15 +96,7 @@ export const GetInTouch = () => {
                   <Image src="/images/map-tmp.png" alt="map" width={256} height={150} />
                 </div>
               </div> */}
-                {/* <div>
-                <p>
-                  <Image src="/images/registered.svg" alt="registered" width={20} height={20} />
-                  <span>[Registered Address]</span>
-                </p>
-                <div className={styles.map}>
-                  <Image src="/images/map-tmp.png" alt="map" width={256} height={150} />
-                </div>
-              </div> */}
+                {/*  */}
               </div>
             </div>
             {/* <div className={styles.socials}>

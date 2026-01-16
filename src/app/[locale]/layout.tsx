@@ -43,7 +43,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <GoogleAnalytics gaId="G-YSJ62HG0CB" />
+      <GoogleAnalytics gaId="G-0V7LP0EY91" />
       <body className={inter.variable}>
         <NextIntlClientProvider>
           <WishlistProvider>

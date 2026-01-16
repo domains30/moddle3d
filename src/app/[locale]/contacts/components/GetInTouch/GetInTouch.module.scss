@@ -28,6 +28,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  > div {
+    &.addressItem {
+      width: 100%;
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .map {
+        width: 100%;
+        iframe {
+          width: 100%;
+          border-radius: 16px;
+          filter: invert(1);
+        }
+      }
+    }
+  }
 }
 
 .details {

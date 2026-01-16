@@ -72,9 +72,9 @@ export const Header = () => {
                   <Link href="mailto:info@moddle3d.com" className={styles.link}>
                     info@moddle3d.com
                   </Link>
-                  {/* <Link href="tel:+1 000 000 000" className={styles.link}>
-                    +1 000 000 000
-                  </Link> */}
+                  <Link href="tel:+48732143539" className={styles.link}>
+                    +48732143539
+                  </Link>
                   <LangSwitcher />
                 </div>
               </div>

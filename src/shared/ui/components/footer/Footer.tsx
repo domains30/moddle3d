@@ -129,6 +129,19 @@ export const Footer = () => {
                 })}
               </h3>
               <div className={styles.info}>
+                <div>
+                  <span>
+                    {t('infoRegisteredTitle', {
+                      fallback: 'Registered address:',
+                    })}
+                  </span>
+                  <p>
+                    {t('infoRegisteredAddress', {
+                      fallback:
+                        'Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland',
+                    })}
+                  </p>
+                </div>
                 {/* <div>
                   <span>
                     {t('infoOfficeTitle', {
@@ -141,35 +154,24 @@ export const Footer = () => {
                     })}
                   </p>
                 </div>
-                <div>
-                  <span>
-                    {t('infoRegisteredTitle', {
-                      fallback: 'Registered address:',
-                    })}
-                  </span>
-                  <p>
-                    {t('infoRegisteredAddress', {
-                      fallback: 'address',
-                    })}
-                  </p>
-                </div> */}
+                */}
                 <div>
                   <Link href="mailto:info@moddle3d.com" className={styles.link}>
                     info@moddle3d.com
                   </Link>
                 </div>
-                {/* <div>
-                  <Link href="tel:+1 000 000 000" className={styles.link}>
-                    +1 000 000 000
+                <div>
+                  <Link href="tel:+48732143539" className={styles.link}>
+                    +48732143539
                   </Link>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.footer__bottom}>
           <p>
-            © {year} Moddle sp z o o PL.{' '}
+            © {year} Modlle Sp. z o.o.{' '}
             {t('copyright', {
               fallback: 'All Legal Rights Reserved.',
             })}
