@@ -52,6 +52,7 @@ export const PriceList = () => {
             })}
             type="link"
             href="/price-list.pdf"
+            target="_blank"
           />
         </motion.div>
       </div>
