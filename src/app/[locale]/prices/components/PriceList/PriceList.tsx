@@ -51,7 +51,7 @@ export const PriceList = () => {
               fallback: 'Download Full Price List',
             })}
             type="link"
-            href="#"
+            href="/price-list.pdf"
           />
         </motion.div>
       </div>
