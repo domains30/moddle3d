@@ -70,8 +70,7 @@ export const GetInTouch = () => {
                     <Image src="/images/registered.svg" alt="registered" width={20} height={20} />
                     <span className={styles.contact}>
                       {t('registeredAddress', {
-                        fallback:
-                          'Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland',
+                        fallback: 'Hoza Street 86/210, 00-682 Warsaw, Poland',
                       })}
                     </span>
                   </p>

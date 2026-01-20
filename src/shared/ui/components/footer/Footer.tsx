@@ -137,8 +137,7 @@ export const Footer = () => {
                   </span>
                   <p>
                     {t('infoRegisteredAddress', {
-                      fallback:
-                        'Hoza Street 86/210, 00-682 Warsaw, Warsaw District, Masovian Voivodeship, Poland',
+                      fallback: 'Hoza Street 86/210, 00-682 Warsaw, Poland',
                     })}
                   </p>
                 </div>
