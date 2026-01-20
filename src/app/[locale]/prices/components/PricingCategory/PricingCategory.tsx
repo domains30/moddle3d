@@ -23,7 +23,13 @@ import type {
 
 const PricingItemSkeleton = () => <div className={styles.skeleton}></div>;
 
-export const PricingCategory = ({ category }: { category: PricingCategoryType }) => {
+export const PricingCategory = ({
+  category,
+  locale,
+}: {
+  category: PricingCategoryType;
+  locale: string;
+}) => {
   const { title, description } = category;
   const [items, setItems] = useState<PricingItemType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +37,7 @@ export const PricingCategory = ({ category }: { category: PricingCategoryType })
 
   useEffect(() => {
     const fetchItems = async () => {
-      const items = await getPricingItems(category.id);
+      const items = await getPricingItems(category.id, locale);
       setItems(items);
       setIsLoading(false);
     };

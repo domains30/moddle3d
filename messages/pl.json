@@ -1,0 +1,841 @@
+{
+  "accountContainer": { "title": "Ustawienia konta" },
+  "careerForm": {
+    "coverLetter": "List motywacyjny*",
+    "coverLetterPlaceholder": "Prześlij swój list motywacyjny",
+    "email": "Adres e-mail*",
+    "emailPlaceholder": "Główny kontaktowy adres e-mail",
+    "failed": "Nie udało się wysłać wiadomości e-mail. Odśwież i spróbuj ponownie.",
+    "fullName": "Imię i nazwisko*",
+    "fullNamePlaceholder": "Wprowadź swoje imię i nazwisko",
+    "message": "Wiadomość*",
+    "messagePlaceholder": "Wprowadź wiadomość",
+    "phone": "Numer telefonu*",
+    "phonePlaceholder": "Podstawowy numer telefonu kontaktowego",
+    "position": "Pozycja*",
+    "positionApplyingFor": "Stanowisko, o które się ubiegasz",
+    "positionPlaceholder": "Wprowadź swoją pozycję",
+    "positions": {
+      "0": "Kreator modelowania 3D",
+      "1": "Animacja Ninja",
+      "2": "Guru projektowania UI/UX",
+      "3": "Bohater produkcji wideo"
+    },
+    "resume": "Wznowienie*",
+    "resumePlaceholder": "Prześlij swoje aktualne CV",
+    "submit": "Prześlij",
+    "submitting": "Zgłaszanie..."
+  },
+  "careers": {
+    "applyForm": {
+      "description": "Jeśli jesteś gotowy, aby wnieść swoją kreatywność, umiejętności i dobre wibracje do Moddle 3D, chcemy usłyszeć od Ciebie! Wypełnij poniższy formularz i pokaż nam, co sprawia, że jesteś wyjątkowy. Twórzmy, współpracujmy i bawmy się po drodze. Przygoda zaczyna się teraz!",
+      "title": "Gotowy, by dołączyć do zabawy?"
+    },
+    "hero": {
+      "description": "Nie jesteśmy typową agencją - jesteśmy kreatywną potęgą, która rozwija się dzięki innowacjom, współpracy i odrobinie chaosu (w najlepszy możliwy sposób). Jeśli uwielbiasz przesuwać granice tego, co jest możliwe w świecie modelowania 3D, animacji, projektowania UI/UX i produkcji wideo, to chcemy CIEBIE w naszym zespole!",
+      "title": {
+        "0": "Dołącz do naszego zespołu marzeń:",
+        "1": "Gdzie kreatywność spotyka się z zabawą"
+      }
+    },
+    "openJobs": {
+      "jobs": {
+        "0": {
+          "buttonText": "Nie czekaj - aplikuj",
+          "requirements": {
+            "0": "Solidne doświadczenie z oprogramowaniem do modelowania 3D (Blender, Autodesk itp.).",
+            "1": "Zamiłowanie do szczegółów - ponieważ precyzja to Twoje drugie imię.",
+            "2": "Zdolność do przyjęcia koncepcji i przekształcenia jej w namacalne arcydzieło.",
+            "3": "Tylko dobre wibracje - przynieś swoją kreatywność i zabawę!"
+          },
+          "responsibilities": {
+            "0": "Przekształcaj pomysły w namacalne kreacje 3D (od prototypów produktów po niestandardowe miniatury).",
+            "1": "Współpracuj z zespołem, aby tworzyć gotowe do druku projekty dla różnych branż (bez presji, po prostu fajne rzeczy).",
+            "2": "Przekraczaj granice kreatywności, jednocześnie upewniając się, że każdy model jest precyzyjnie dopracowany.",
+            "3": "Baw się najnowocześniejszym oprogramowaniem 3D i bądź na bieżąco z najnowszymi trendami w branży."
+          },
+          "title": "Kreator modelowania 3D"
+        },
+        "1": {
+          "buttonText": "Wejdź do gry!",
+          "requirements": {
+            "0": "Silne doświadczenie w animacji 2D/3D i grafice ruchomej.",
+            "1": "Doświadczenie z oprogramowaniem do animacji (Maya, After Effects itp.).",
+            "2": "Pasjonat opowiadania historii, który potrafi przekształcić pomysł w angażujące doświadczenie.",
+            "3": "Zorientowany na szczegóły, ze szczyptą kreatywności i humoru!"
+          },
+          "responsibilities": {
+            "0": "Twórz przyciągające wzrok animacje, które sprawią, że ludzie powiedzą \"Wow!\".",
+            "1": "Ściśle współpracuj z zespołem projektowym, aby ożywić postacie, historie i produkty za pomocą animacji.",
+            "2": "Opracowywanie ruchomych grafik i animacji filmowych na potrzeby różnych projektów (zakaz nudnych rzeczy!).",
+            "3": "Upewnij się, że animacja nie tylko się porusza, ale porusza się celowo."
+          },
+          "title": "Animacja Ninja"
+        },
+        "2": {
+          "buttonText": "Nie czekaj - dołącz do nas!",
+          "requirements": {
+            "0": "Portfolio prezentujące projekty zorientowane na użytkownika.",
+            "1": "Biegła znajomość narzędzi UI/UX (Sketch, Figma, Adobe XD itp.).",
+            "2": "Dbałość o czyste, eleganckie i nowoczesne wzornictwo.",
+            "3": "Potrafi rozwiązywać problemy i tworzyć bezproblemowe doświadczenia dla użytkowników."
+          },
+          "responsibilities": {
+            "0": "Projektuj płynne, bezproblemowe interfejsy użytkownika, których użytkownicy nie mogą przestać klikać (dosłownie).",
+            "1": "Współpraca z programistami w celu zapewnienia pięknych i funkcjonalnych projektów.",
+            "2": "Wykorzystaj swoje supermoce projektowe, aby tworzyć projekty zorientowane na użytkownika, które poprawią każde cyfrowe doświadczenie.",
+            "3": "Bądź na bieżąco z najnowszymi trendami w projektowaniu i innowacyjnymi technikami, aby pozostać w czołówce."
+          },
+          "title": "Guru projektowania UI/UX"
+        },
+        "3": {
+          "buttonText": "Wejdź na pokład już dziś!",
+          "requirements": {
+            "0": "Udokumentowane doświadczenie w produkcji wideo (praca z kamerą, montaż, oświetlenie, dźwięk itp.)",
+            "1": "Doświadczenie w zakresie grafiki ruchomej i oprogramowania do edycji wideo (Premiere Pro, After Effects, Final Cut Pro).",
+            "2": "Gawędziarz, który uwielbia tworzyć filmy, które zapadają ludziom w pamięć.",
+            "3": "Uwielbiam współpracować i dobrze się przy tym bawić!"
+          },
+          "responsibilities": {
+            "0": "Wyreżyseruj, nakręć i zmontuj imponujące filmy, które zachwycą widzów.",
+            "1": "Współpracuj z zespołem, aby tworzyć wszystko, od demonstracji produktów po filmowe historie marki.",
+            "2": "Upewnij się, że każdy film jest emocjonalnie wciągający, a nie tylko \"przyjemny do oglądania\".",
+            "3": "Wykorzystaj magię efektów specjalnych, animacji i zapierających dech w piersiach edycji."
+          },
+          "title": "Bohater produkcji wideo"
+        }
+      },
+      "requirements": "Wymagania:",
+      "responsibilities": "Obowiązki:",
+      "title": "Aktualne oferty pracy"
+    },
+    "perks": {
+      "perk": {
+        "0": {
+          "text": "Wierzymy, że kreatywność może płynąć bez ograniczeń.",
+          "title": "Wolność twórcza"
+        },
+        "1": {
+          "text": "Pracuj z zespołem, który wspiera Cię i stawia przed Tobą wyzwania.",
+          "title": "Środowisko współpracy"
+        },
+        "2": {
+          "text": "Im więcej się uczysz, tym bardziej się rozwijasz - zarówno osobiście, jak i zawodowo.",
+          "title": "Możliwości rozwoju"
+        },
+        "3": {
+          "text": "Ciężko pracujemy, ale wiemy też, jak zachować lekkość - bez względu na to, gdzie jesteś! Wirtualne wieczory gier, wyzwania online i mnóstwo śmiechu.",
+          "title": "Świetne wibracje"
+        }
+      },
+      "title": { "0": "Zalety bycia na", "1": "Zespół Moddle 3D" }
+    }
+  },
+  "cart": {
+    "checkout": "Kasa",
+    "emptyCart": "Ups! Twój koszyk jest trochę pusty...",
+    "emptyCartDescription": "Nie martw się, mamy mnóstwo niesamowitych modeli 3D, które czekają na Ciebie! Zapoznaj się z naszą kolekcją i wypełnij swój koszyk najfajniejszymi projektami, aby wcielić swoje pomysły w życie!",
+    "exploreCollection": "Rozpocznij eksplorację",
+    "orderSummary": "Podsumowanie zamówienia",
+    "price": "Cena",
+    "subtotal": "Suma częściowa",
+    "total": "Łącznie"
+  },
+  "changePassword": {
+    "changePassword": "Zmiana hasła",
+    "description": "Wprowadź nowe hasło poniżej, aby je zmienić.",
+    "newPassword": "Nowe hasło",
+    "success": "Hasło zostało pomyślnie zmienione",
+    "title": "Zmiana hasła"
+  },
+  "changePasswordForm": {
+    "currentPassword": "Bieżące hasło",
+    "edit": "Edytuj",
+    "newPassword": "Nowe hasło",
+    "repeatPassword": "Powtórz hasło",
+    "save": "Zapisz",
+    "saving": "Oszczędzanie...",
+    "savingError": "Coś poszło nie tak - odśwież i spróbuj ponownie lub napisz do nas bezpośrednio na adres info@trendelladigital.com.",
+    "savingSuccess": "Hasło zostało pomyślnie zaktualizowane",
+    "title": "Dostęp do konta"
+  },
+  "checkout": {
+    "address1": "Linia adresowa 1",
+    "address2": "Linia adresowa 2",
+    "bankTransfer": "Przelew bankowy",
+    "billingDetails": "Szczegóły rozliczenia",
+    "checkout": "Prześlij",
+    "city": "Miasto",
+    "country": "Kraj",
+    "email": "E-mail",
+    "emptyCart": "Ups! Twój koszyk jest trochę pusty...",
+    "emptyCartDescription": "Nie martw się, mamy mnóstwo niesamowitych modeli 3D, które czekają na Ciebie! Zapoznaj się z naszą kolekcją i wypełnij swój koszyk najfajniejszymi projektami, aby wcielić swoje pomysły w życie!",
+    "exploreCollection": "Rozpocznij eksplorację",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "letUsKnow": "Masz specjalne życzenie? Daj nam znać!",
+    "loading": "Ładowanie...",
+    "orderNotes": "Czy jest coś magicznego, co chciałbyś, abyśmy dodali? Prześlij swoje uwagi tutaj, a my to zrobimy - żadna prośba nie jest zbyt szalona!",
+    "orderSummary": "Podsumowanie zamówienia",
+    "paymentMethod": "Metoda płatności",
+    "paymentNote": "*Po złożeniu zamówienia otrzymasz wiadomość e-mail z instrukcjami dotyczącymi płatności, w tym naszymi danymi bankowymi i podsumowaniem zakupu.",
+    "refundPolicy": "Zapoznałem się i akceptuję zasady zwrotu kosztów.",
+    "safeAndSound": "Twoje informacje, bezpieczne i zdrowe!",
+    "safeAndSoundDescription": "Używamy Twoich danych, aby dostarczyć Ci zamówienie, ułatwić Ci przeglądanie stron i do innych fajnych rzeczy opisanych w naszej Polityce prywatności. Nie martw się, mamy wszystko pod kontrolą!",
+    "termsAndConditions": "Przeczytałem i akceptuję Warunki korzystania z witryny.",
+    "total": "Łącznie",
+    "zip": "Kod pocztowy"
+  },
+  "contactInfoPolicy": {
+    "email": "E-mail",
+    "phone": "Telefon",
+    "website": "Strona internetowa"
+  },
+  "cookiePolicy": {
+    "contactDescription": "W razie pytań prosimy o kontakt pod adresem:",
+    "contactTitle": "Informacje kontaktowe"
+  },
+  "cookiePopup": {
+    "accept": "Akceptuj pliki cookie",
+    "text": "Używamy plików cookie, aby poprawić komfort korzystania z naszej witryny, niezależnie od tego, czy chodzi o utrzymanie zalogowania, czy dostarczanie wspaniałych treści. Kontynuując przeglądanie, wyrażasz zgodę na używanie przez nas plików cookie. Jeśli nie jesteś ich fanem, możesz w każdej chwili zmienić ustawienia plików cookie - ale hej, ciasteczka są całkiem słodkie, prawda?",
+    "title": "Lubimy, gdy wszystko jest smaczne (i przejrzyste)!"
+  },
+  "deals": { "discount": "Zniżka ", "models": "Modele 3D:" },
+  "dealsHero": {
+    "description": "Po co płacić pełną cenę, skoro można uzyskać najlepsze modele 3D po obniżonej cenie? Nasze ograniczone czasowo oferty są zbyt dobre, by je przegapić! Niezależnie od tego, czy szukasz oszałamiających dekoracji, niestandardowych breloków do kluczy czy wyjątkowej biżuterii, mamy dla Ciebie niesamowite oferty na wysokiej jakości modele gotowe do druku. Ale pospiesz się - te oferty nie będą trwać wiecznie! Zdobądź je, póki jeszcze możesz, i zrealizuj swoje pomysły dzięki niesamowitym oszczędnościom.",
+    "title": "Gorące oferty, fajne modele!"
+  },
+  "editUserForm": {
+    "address1": "Ulica Adres",
+    "address2": "Apartament/Suite",
+    "city": "Miasto",
+    "country": "Kraj",
+    "edit": "Edytuj",
+    "email": "E-mail",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "personalInformation": "Dane osobowe",
+    "phone": "Telefon",
+    "save": "Zapisz",
+    "saving": "Oszczędzanie...",
+    "savingError": "Coś poszło nie tak - odśwież i spróbuj ponownie lub napisz do nas bezpośrednio na adres info@trendelladigital.com.",
+    "savingSuccess": "Pomyślna aktualizacja użytkownika",
+    "title": "Ustawienia konta",
+    "username": "Nazwa użytkownika",
+    "zip": "Kod pocztowy"
+  },
+  "featuredCategory": { "viewAll": "Eksploruj" },
+  "footer": {
+    "connect1": "Trendy",
+    "connect2": "Kontakty",
+    "connectTitle": "Połączenie",
+    "copyright": "Wszelkie prawa zastrzeżone.",
+    "culture1": "Praca",
+    "culture2": "Wpływ",
+    "culture3": "Kariera",
+    "cultureTitle": "Kultura",
+    "infoOfficeAddress": "adres",
+    "infoOfficeTitle": "Adres biura:",
+    "infoRegisteredAddress": "ul. Hoża 86/210, 00-682 Warszawa, powiat warszawski, województwo mazowieckie, Polska",
+    "infoRegisteredTitle": "Zarejestrowany adres:",
+    "infoTitle": "Info",
+    "offers1": "Usługi",
+    "offers2": "Ceny",
+    "offers3": "Oferty",
+    "offersTitle": "Oferty",
+    "regulations1": "Warunki użytkowania",
+    "regulations2": "Polityka prywatności",
+    "regulations3": "Polityka dotycząca plików cookie",
+    "regulations4": "Polityka zwrotów",
+    "regulationsTitle": "Przepisy",
+    "shop": "Sklep"
+  },
+  "forgotPassword": {
+    "description": "Nie ma problemu! Po prostu wpisz swoją nazwę użytkownika lub adres e-mail poniżej, a my wyślemy Ci link do zresetowania go szybciej niż ładuje się model 3D!",
+    "email": "E-mail",
+    "resetPassword": "Resetowanie hasła",
+    "sending": "Wysyłanie...",
+    "success": "Link do resetowania hasła wysłany na adres e-mail",
+    "title": "Ups, zapomniałeś hasła?"
+  },
+  "getInTouch": {
+    "description": "Masz pytanie, pomysł na projekt lub potrzebujesz niestandardowej wyceny? Nie wstydź się - jesteśmy otwarci! W Moddle 3D wierzymy, że każdy świetny projekt zaczyna się od rozmowy. Skontaktuj się z nami i zamieńmy Twoje najśmielsze pomysły w cyfrowe arcydzieła!",
+    "description2": "Masz projekt, który czeka na realizację? A może po prostu chcesz zacząć coś nowego i ekscytującego? Jesteśmy do Twojej dyspozycji! Połączmy siły i zamieńmy Twoje pomysły w cyfrowe arcydzieła, które pozostawią niezatarte wrażenie.",
+    "detailsTitle": "Jak się z nami skontaktować",
+    "registeredAddress": "ul. Hoża 86/210, 00-682 Warszawa, powiat warszawski, województwo mazowieckie, Polska",
+    "socialsDescription": "Zawsze tworzymy i chcemy, abyś był tego częścią! Śledź nas w mediach społecznościowych, aby uzyskać najnowsze informacje o naszych projektach, trendach branżowych i poważnych kreatywnych inspiracjach. Zaangażuj się, bądź na bieżąco i zacznijmy coś niesamowitego!",
+    "socialsTitle": "Pozostań towarzyski",
+    "submit": "Rozpocznij projekt już dziś",
+    "title": "Skontaktuj się z nami: Stwórzmy coś niesamowitego!",
+    "title2": "Gotowy na magiczną przygodę?"
+  },
+  "header": {
+    "careers": "Kariera",
+    "contacts": "Kontakty",
+    "deals": "Oferty",
+    "home": "Strona główna",
+    "impact": "Wpływ",
+    "login": "Logowanie",
+    "prices": "Ceny",
+    "services": "Usługi",
+    "shop": "Sklep",
+    "signup": "Zarejestruj się",
+    "trends": "Trendy",
+    "work": "Praca"
+  },
+  "homeHero": {
+    "button": "Uwolnij magię",
+    "description": "Tam, gdzie piksele spotykają się z możliwościami, od modeli 3D po oszałamiające animacje <br/>i eleganckie projekty UI/UX, jesteśmy tutaj, aby ożywić Twoje pomysły <br/>. Marzenie zaczyna się tutaj.",
+    "title1": "Witamy w Krainie Czarów 3D <br/>"
+  },
+  "impact": {
+    "aboutDreamart": {
+      "button": "Chcesz dołączyć do zabawy?",
+      "card1": {
+        "text": "Ten, który potrafi przekształcić dowolny szkic w model 3D gotowy do druku.",
+        "title": "Magik 3D"
+      },
+      "card2": {
+        "text": "Szybki, precyzyjny i zawsze gotowy, aby ożywić swoje pomysły, klatka po klatce.",
+        "title": "Animator Ninja"
+      },
+      "card3": {
+        "text": "Mają oko do estetyki i obsesję na punkcie funkcjonalności - idealne dla UI/UX, który jest zarówno piękny, jak i intuicyjny.",
+        "title": "Geniusz projektowania"
+      },
+      "card4": {
+        "text": "Twórca tych niezapomnianych filmów, które podbijają serca i umysły.",
+        "title": "Opowiadacz"
+      },
+      "tag": "aka Cyfrowi Mściciele",
+      "text": "Jesteśmy grupą kreatywnych umysłów, które uwielbiają współpracować i przekraczać granice. Poznaj zespół, który sprawia, że cała ta magia ma miejsce:",
+      "title": "Zespół Moddle 3D"
+    },
+    "byTheNumbers": {
+      "stat1": {
+        "text": "Od prototypów po dzieła sztuki, projektowaliśmy modele dla różnych branż.",
+        "title": "Utworzone modele 3D"
+      },
+      "stat2": {
+        "text": "Od prototypów po dzieła sztuki, projektowaliśmy modele dla różnych branż.",
+        "title": "Udane animacje"
+      },
+      "stat3": {
+        "text": "Tworzenie intuicyjnych, oszałamiających wizualnie projektów stron internetowych i aplikacji.",
+        "title": "Projekty UI/UX"
+      },
+      "stat4": {
+        "text": "Tworzenie filmów o dużej sile oddziaływania, które zwiększają wyniki i opowiadają potężne historie.",
+        "title": "Produkcje wideo"
+      },
+      "stat5": {
+        "text": "Artyści, twórcy i firmy, które ufają nam, że wprowadzimy ich pomysły w życie.",
+        "title": "Szczęśliwi klienci"
+      },
+      "text": "Oto krótki przegląd naszych osiągnięć",
+      "title": "Liczby"
+    },
+    "hero": {
+      "description": "Witamy w Moddle 3D - miejscu, w którym pomysły zamieniają się w namacalną rzeczywistość, wyobraźnia jest naszą supermocą, a kreatywność naszą tajną bronią. Nie tylko tworzymy modele 3D, animacje i projekty - tworzymy doświadczenia, które sprawią, że Twoja marka będzie niezapomniana.",
+      "title": { "0": "Wywieranie wpływu,", "1": "Jeden piksel na raz" }
+    },
+    "ourPhilosophy": {
+      "tag": "Mniej gadania, więcej działania (i fajne projekty)",
+      "text": "Wierzymy w działanie. Nie jesteśmy agencją, która spędza całe dnie na pisaniu raportów o tym, jacy jesteśmy wspaniali. Zamiast tego pozwalamy, by nasza praca mówiła sama za siebie. Każdy projekt, którego się podejmujemy, jest okazją do nauki, innowacji i dostarczenia czegoś niesamowitego. Nie chodzi tylko o wypełnienie briefu - chodzi o to, aby Twoja marka błyszczała w sposób, którego nawet sobie nie wyobrażałeś.",
+      "title": "Nasza filozofia"
+    },
+    "whatMakesUsDifferent": {
+      "tag": "Jesteśmy trochę niekonwencjonalni i to jest nasza supermoc",
+      "text": "Myślimy inaczej. Przekraczamy granice. Nie boimy się być dziwni (w najlepszy możliwy sposób). Nasze dziwaczne podejście do projektowania i animacji wyróżnia nas spośród morza ogólnych agencji. Dostrzegamy potencjał w każdym projekcie i znajdujemy radość w każdym wyzwaniu.",
+      "title": "Co nas wyróżnia"
+    },
+    "whatWeDo": {
+      "tag": "Sprawiamy, że rzeczy są niesamowite",
+      "text": "Od modeli 3D do druku po oszałamiające animacje i projekty UI/UX na najwyższym poziomie - tworzymy treści cyfrowe, które są tak odważne, jak Twoje pomysły. Potrzebujesz wideo, które sprawi, że wszyscy przestaną przewijać? Mamy wszystko pod kontrolą. W naszej pracy nie chodzi tylko o wykonanie zadania - chodzi o zrobienie tego w sposób, który zachwyca.",
+      "title": "Czym się zajmujemy"
+    },
+    "whoWeAre": {
+      "tag": "Zespół marzycieli, twórców i cyfrowych czarodziejów",
+      "text": "Jesteśmy dziwacznym zespołem artystów 3D, animatorów, projektantów i entuzjastów technologii, którzy wierzą, że kreatywność nie ma granic. Jesteśmy nie tylko ekspertami w tym, co robimy - uwielbiamy to robić. Niezależnie od tego, czy chodzi o ożywienie koncepcji za pomocą modelu wydrukowanego w 3D, zaprojektowanie intuicyjnej aplikacji, czy animowanie postaci, które wywołują uśmiech na twarzach ludzi, zawsze przekraczamy granice.",
+      "title": "Kim jesteśmy"
+    },
+    "whyChooseUs": {
+      "tag": "Jesteśmy czymś więcej niż tylko \"kolejną agencją\"",
+      "text": {
+        "0": "Spójrzmy prawdzie w oczy, istnieje wiele agencji. Dlaczego więc wybrać nas? To proste: oferujemy unikalne połączenie kreatywności, precyzji i odrobiny zabawy. Nie tylko podążamy za trendami - my je wyznaczamy. Mamy obsesję na punkcie szczegółów, ale wiemy też, kiedy się wycofać i pozwolić, by na scenie pojawił się szerszy obraz.",
+        "1": "Jesteśmy dumni z naszej pracy i cieszymy się, że możemy współpracować z klientami, którzy podzielają naszą pasję do kreatywności i innowacji. Niezależnie od tego, czy jesteś artystą, twórcą, czy marką gotową się wyróżnić, jesteśmy zespołem, który ożywi Twoją wizję."
+      },
+      "title": "Dlaczego warto wybrać nas?"
+    }
+  },
+  "letsCreate": {
+    "description": "Rozpoczynasz nowy projekt lub chcesz ulepszyć istniejący, jesteśmy tutaj, aby pomóc. Przekształćmy Twoją wizję w arcydzieło.",
+    "submit": "Rozpocznij projekt już dziś",
+    "title": "Stwórzmy razem coś epickiego"
+  },
+  "loginForm": {
+    "create": "Utwórz konto",
+    "description": "Gotowy na powrót do świata magii 3D? Wystarczy podać nazwę użytkownika, adres e-mail i hasło, aby rozpocząć! Zapomniałeś hasła? Nie martw się, po prostu kliknij \"Zapomniałeś hasła?\", a my Ci pomożemy!",
+    "dontHaveAccount": "Pierwszy raz tutaj?",
+    "email": "E-mail",
+    "error": "Coś poszło nie tak. Spróbuj ponownie później.",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "loggingIn": "Logowanie...",
+    "login": "Logowanie",
+    "password": "Hasło",
+    "title": "Witaj z powrotem, twórco!"
+  },
+  "orderHistory": {
+    "completed": "Zakończono",
+    "download": "Pobierz",
+    "failed": "Nie powiodło się",
+    "invoice": "Faktura",
+    "itemPurchased": "Zakupiony przedmiot",
+    "notAvailable": "Niedostępne",
+    "orderId": "Identyfikator zamówienia",
+    "orderStatus": "Status zamówienia",
+    "paymentMethod": "Metoda płatności",
+    "pending": "W toku",
+    "purchaseDate": "Data zakupu",
+    "title": "Historia zamówień",
+    "total": "Łącznie"
+  },
+  "ourShowreel": {
+    "description": "Światła, kamera, akcja! Oto przepustka VIP do ekskluzywnego pokazu naszej magii produkcji wideo. Od reklam, które sprawiają, że produkty stają się pop, po animowane treści, które opowiadają historie, ten showreel serwuje najlepsze z tego, co robimy. Obejrzyj, daj się zaskoczyć i zobacz, jak zamieniamy pomysły w wizualne złoto.",
+    "tag": "Rzuć kamerą - sprawdź przegląd naszych projektów!",
+    "title": "Nasza kronika filmowa"
+  },
+  "ourSolutions": {
+    "button": "Rozpocznij z nami",
+    "card1": "Modelowanie 3D na potrzeby druku",
+    "card1Label": "Od koncepcji do rzeczywistości: <br/>Jeśli możesz o tym marzyć, możemy to wymodelować. Dosłownie.",
+    "card1Text": "Nasze modele 3D to coś więcej niż tylko projekty - to wysokiej jakości kreacje gotowe do wydrukowania w prawdziwym świecie. Niezależnie od tego, czy chodzi o prototypowanie, sztukę czy sprzedaż detaliczną, tworzymy modele, które są gotowe do działania.",
+    "card2": "Tworzenie animacji",
+    "card2Label": "Światła, kamera, akcja... <br/>Wnosimy dramat!",
+    "card2Text": "Potrzebujesz wciągającej animacji? Niezależnie od tego, czy chodzi o marketing, rozrywkę czy edukację, dostarczamy animacje, które trzymają ludzi na krawędzi. Przyciągają uwagę, opowiadają historie i pozostawiają wrażenie z każdą klatką.",
+    "card3": "Produkcja wideo ",
+    "card3Label": "Twoja historia, <br/>Nasz obiektyw",
+    "card3Text": "Od filmów instruktażowych po treści promocyjne - tworzymy filmy, które opowiadają Twoją historię w sposób, który przykuwa uwagę. Ty to wymyślisz, my to nakręcimy - wprowadzając Twoją wizję w ruch z precyzją i polotem.",
+    "card4": "UI/UX",
+    "card4Label": "Twoja witryna zasługuje na to, by <br/>wyglądała jak milion dolarów.",
+    "card4Text": "Nie tylko projektujemy strony internetowe; projektujemy doświadczenia. Nasz proces projektowania UI/UX gwarantuje, że użytkownicy pokochają nawigację po Twojej witrynie tak samo, jak pokochają wyniki. Piękna, intuicyjna i funkcjonalna - wszystko w jednym.",
+    "description": "Żadne wyzwanie nie jest zbyt duże, żaden model zbyt skomplikowany. Niezależnie od tego, czy potrzebujesz modeli do druku 3D, epickich animacji, czy intuicyjnego projektowania UI/UX, mamy supermoce, aby przekształcić Twoje marzenia w cyfrową rzeczywistość. Tworzymy rozwiązania, które są nie tylko funkcjonalne - są dziełami sztuki.",
+    "label": "Rozwiązujemy problemy jak superbohaterowie (tylko z lepszymi gadżetami)",
+    "title": "Nasze rozwiązania"
+  },
+  "packageRequestForm": {
+    "email": "E-mail",
+    "estimatedBudget": "Szacowany budżet",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "loading": "Ładowanie...",
+    "message": "Szczegóły projektu",
+    "submit": "Wykorzystaj swoją kreatywną moc!",
+    "success": "Żądanie wysłane pomyślnie"
+  },
+  "priceList": {
+    "button": "Pobierz pełny cennik",
+    "description": "Wiemy, że chcesz poznać wszystkie szczegóły, a my z przyjemnością je dostarczymy! Pobierz nasz pełny cennik, aby zobaczyć wszystkie nasze pakiety, usługi i ceny w jednym, łatwym do odczytania pliku PDF. Niezależnie od tego, czy dopiero przeglądasz ofertę, czy jesteś gotowy do rozpoczęcia pracy, jest to idealny sposób na znalezienie pakietu, który będzie dla Ciebie najlepszy.",
+    "label": "Pobierz nasz kompletny cennik",
+    "title": "Pełny obraz sytuacji"
+  },
+  "pricesHero": {
+    "description": "W Moddle 3D oferujemy elastyczne pakiety dostosowane do potrzeb i budżetu <br/>. Niezależnie od tego, czy szukasz animacji, projektu UI/UX <br/>, czy produkcji wideo, mamy coś dla Ciebie. Oto <br/>wszystko, co otrzymasz w każdym pakiecie!",
+    "title1": "Wybierz swój <br/>Idealny pakiet"
+  },
+  "prices": { "includes": "Zawiera", "price": "Od" },
+  "pricingPackage": {
+    "button": "Zobacz nasze ceny",
+    "description": "Wierzymy w uczciwe, przejrzyste ceny wszystkich naszych usług. Od wschodzących artystów po uznanych twórców, oferujemy elastyczne pakiety zaprojektowane tak, aby pasowały do Twojej wizji i budżetu. Uzyskaj wysokiej jakości, spersonalizowaną obsługę, na którą zasługujesz, bez ukrytych kosztów. Urzeczywistnijmy Twoje kreatywne pomysły w cenie, która będzie dla Ciebie odpowiednia.",
+    "title": "Ceny i pakiety"
+  },
+  "privacyPolicy": {
+    "contactDescription": "W razie pytań prosimy o kontakt pod adresem:",
+    "contactTitle": "Informacje kontaktowe"
+  },
+  "projectsOverview": {
+    "description": "Wejdź i zobacz, co stworzyliśmy! W tej sekcji prezentujemy nasze najnowsze arcydzieła, od oszałamiających prototypów 3D po animacje, które sprawią, że będziesz chciał powtórzyć. Spoiler: Wszystko jest niesamowite.",
+    "tag": "Co robiliśmy - przygotuj się na zaskoczenie!",
+    "title": "Przegląd projektów"
+  },
+  "quoteRequestForm": {
+    "3DModelling": "Modelowanie 3D",
+    "animation": "Animacja",
+    "anythingElse": "Coś jeszcze?",
+    "asap": "ASAP",
+    "budgetAndTimeline": "Budżet i harmonogram",
+    "collaborationBased": "Oparte na współpracy",
+    "consultationOnly": "Tylko konsultacje",
+    "describeYourProject": "Opisz swój projekt",
+    "description": "Opis",
+    "dontWorry": "Nie martw się, zachowamy to w tajemnicy",
+    "doYouHaveAReferenceOrMoodBoard": "Czy masz tablicę referencyjną lub tablicę nastrojów?",
+    "email": "E-mail",
+    "estimatedBudget": "Szacowany budżet",
+    "firstName": "Imię",
+    "flexible": "Elastyczność",
+    "iAgree": {
+      "0": "Zgadzam się na",
+      "1": "Warunki użytkowania",
+      "2": "oraz",
+      "3": "Polityka prywatności"
+    },
+    "justExploring": "Tylko odkrywanie",
+    "lastName": "Nazwisko",
+    "letsMakeItWork": "Niech to zadziała!",
+    "newProject": "Nowy projekt",
+    "no": "Nie",
+    "ongoingProject": "Trwający projekt",
+    "openToSuggestions": "Otwarty na sugestie",
+    "other": "Inne",
+    "phone": "Telefon",
+    "pleaseSpecify": "Określ",
+    "preferredContactMethod": "Preferowana metoda kontaktu",
+    "preferredFileFormatForDelivery": "Preferowany format pliku do dostarczenia",
+    "projectDeadline": "Termin realizacji projektu",
+    "projectDetails": "Szczegóły projektu",
+    "projectType": "Typ projektu",
+    "rush": "Pośpiech",
+    "standard": "Standard",
+    "startTheProjectToday": "Rozpocznij projekt już dziś",
+    "strictGuidelines": "Ścisłe wytyczne",
+    "uiuxDesign": "Projektowanie UI/UX",
+    "urgencyLevel": "Poziom pilności",
+    "videoProduction": "Produkcja wideo",
+    "weAreAllEars": "Wszyscy słuchamy",
+    "weLovePreferences": "Uwielbiamy preferencje",
+    "whatsapp": "WhatsApp",
+    "whatServiceDoYouNeed": "Jakiej usługi potrzebujesz?",
+    "wouldCall": "Czy chciałbyś umówić się na bezpłatną konsultację?",
+    "yes": "Tak",
+    "yourInfo": "Twoje informacje"
+  },
+  "readyToStart": {
+    "button": "Sprawmy, by tak się stało",
+    "description": "W Moddle 3D przekształcamy kreatywne koncepcje w rzeczywistość dzięki rozwiązaniom, które wywierają wpływ. Jeśli chcesz przyciągnąć uwagę odbiorców oszałamiającymi efektami wizualnymi lub poprawić doświadczenia użytkowników, jesteśmy tutaj, aby to osiągnąć. Przenieśmy Twój projekt na wyższy poziom.",
+    "title": "Gotowy do startu?"
+  },
+  "refundPolicy": { "contactTitle": "Informacje kontaktowe" },
+  "registrationForm": {
+    "confirmPassword": "Potwierdź hasło",
+    "createAccount": "Utwórz konto",
+    "creating": "Tworzenie...",
+    "description": "Gotowy do uwolnienia pełnego potencjału swojej kreatywności? Zarejestruj się już dziś i otrzymuj ekskluzywne aktualizacje, nowe funkcje i atrakcyjne oferty, które przeniosą Twoje projekty na wyższy poziom. Stwórzmy magię 3D!",
+    "email": "E-mail",
+    "error": "Coś poszło nie tak. Spróbuj ponownie później.",
+    "firstName": "Imię",
+    "isAgree": {
+      "0": "Rejestrując się, potwierdzasz, że masz ukończone 18 lat i zgadzasz się na nasze",
+      "1": "Zasady i warunki",
+      "2": "oraz",
+      "3": "Polityka prywatności"
+    },
+    "lastName": "Nazwisko",
+    "password": "Hasło",
+    "phone": "Telefon",
+    "success": "Rejestracja przebiegła pomyślnie. Zaloguj się, aby kontynuować.",
+    "title": "Dołącz do rodziny Moddle 3D!",
+    "username": "Nazwa użytkownika"
+  },
+  "requestForm": {
+    "agree": "Zgadzam się z Warunkami użytkowania i Polityką prywatności.",
+    "agreement": "Szanujemy Twoją prywatność. <br/>Twoje dane nigdy nie będą udostępniane.",
+    "email": "E-mail",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "loading": "Ładowanie...",
+    "message": "Wiadomość",
+    "submit": "Skorzystaj z oferty, zanim zniknie",
+    "success": "Żądanie wysłane pomyślnie"
+  },
+  "services": {
+    "3DModelling": {
+      "description": "Nasze modele 3D są nie tylko fajne - są gotowe do druku, szczegółowe i gotowe do bycia niesamowitymi. Od prototypów po figurki - wcielamy w życie najśmielsze pomysły z precyzją i stylem. Niezależnie od tego, czy potrzebujesz super eleganckiego wazonu, czy niestandardowej figurki akcji, mamy umiejętności modelowania, aby to urzeczywistnić.",
+      "exploreButton": "Kupuj nasze modele 3D",
+      "exploreDescription": "Zanurz się w naszej kolekcji modeli 3D, gdzie kreatywność spotyka się z precyzją. Niezależnie od tego, czy szukasz oszałamiających dekoracji, niestandardowych figurek czy prototypów, nasze modele są idealne do następnego projektu. Przeglądaj różne kategorie i znajdź idealny projekt, gotowy do wydrukowania i urzeczywistnienia swojej wizji.",
+      "exploreTag": "Gotowy do druku, gotowy do wow!",
+      "exploreTitle": "Poznaj nasze modele 3D",
+      "hotDealsButton": "Odbierz swoją ofertę już teraz!",
+      "hotDealsDescription": "Czas ucieka! Skorzystaj z naszych ograniczonych czasowo ofert na modele 3D, zanim znikną. Od dziwacznych figurek po eleganckie prototypy, te modele są gotowe, aby ożywić twoje pomysły - i są w cenach, w które nie uwierzysz. Nie czekaj - stań się ich właścicielem, póki jeszcze możesz!",
+      "hotDealsTag": "Pospiesz się, zanim znikną!",
+      "hotDealsTitle": "Gorące oferty na wyjątkowe kreacje",
+      "readyToButton": "Wycena",
+      "readyToText": "Stwórzmy niestandardowe arcydzieło specjalnie dla Ciebie!",
+      "readyToTitle": "Masz szalony pomysł na 3D?",
+      "services": {
+        "0": "Prototypy produktów",
+        "1": "Modele do druku 3D",
+        "10": "Makiety produktów",
+        "11": "Modele low poly i high poly",
+        "12": "Niestandardowe rzeźby 3D",
+        "13": "Modele 3D mebli",
+        "14": "Modele koncepcyjne",
+        "15": "Rendery architektoniczne",
+        "16": "Ilustracje 3D",
+        "17": "Niestandardowe przedmioty kolekcjonerskie",
+        "18": "Tekstury 3D i mapowanie",
+        "19": "Interaktywne modele 3D",
+        "2": "Projekty koncepcyjne",
+        "3": "Niestandardowe figurki",
+        "4": "Miniatury dla przedmiotów kolekcjonerskich",
+        "5": "Projekty biżuterii",
+        "6": "Modele architektoniczne",
+        "7": "Zasoby i postacie w grze",
+        "8": "Ikony i logo 3D",
+        "9": "Modele Home Decor"
+      },
+      "servicesWeOffer": "Oferowane przez nas usługi",
+      "tag": "Twój plan, teraz w 3D",
+      "title": "Modelowanie 3D"
+    },
+    "animationCreation": {
+      "description": "Animacja to nie tylko ruchome obrazy - to tworzenie magii na ekranie. Od filmów wyjaśniających, które sprawiają, że złożone pomysły stają się proste, po epickie animowane reklamy, które sprawią, że widzowie pójdą \"Wow!\", mamy umiejętności, dzięki którym Twoja historia ożyje. Chwyć popcorn, ponieważ Twoje pomysły trafią na duży ekran!",
+      "services": {
+        "0": "Animacja 2D",
+        "1": "Animacja 3D",
+        "10": "Animacje infograficzne",
+        "11": "Teledyski",
+        "12": "Animowane tytuły",
+        "13": "Animacje rzeczywistości rozszerzonej",
+        "14": "Animacje wirtualnej rzeczywistości",
+        "15": "Animacje Gif",
+        "16": "Animacje poklatkowe",
+        "17": "Storyboarding",
+        "18": "Animacje do gier wideo",
+        "19": "Interaktywne animacje",
+        "2": "Filmy instruktażowe",
+        "3": "Animacje komercyjne",
+        "4": "Animacje demonstracyjne produktów",
+        "5": "Grafika ruchoma",
+        "6": "Animacje postaci",
+        "7": "Animowane logo",
+        "8": "Animacje kinowe",
+        "9": "Filmy wideo w mediach społecznościowych"
+      },
+      "servicesWeOffer": "Oferowane przez nas usługi",
+      "tag": "Sprawmy, by Twoje pomysły zaiskrzyły",
+      "title": "Tworzenie animacji"
+    },
+    "design": {
+      "description": "Nie tylko projektujemy strony internetowe i aplikacje - tworzymy doświadczenia, które sprawiają, że użytkownicy wracają. Tworzymy eleganckie, intuicyjne i zabawne projekty, które sprawiają, że nawigacja jest dziecinnie prosta. Łączymy piękno i funkcjonalność, aby użytkownicy mogli cieszyć się bezproblemową przygodą.",
+      "flow": {
+        "btn": "Zobacz nasze pakiety i ceny",
+        "cards": {
+          "0": {
+            "desc": "Zaczynamy od zagłębienia się w Twoją markę i zrozumienia Twoich odbiorców. Nie chodzi tylko o projektowanie na dziś - chodzi o przewidywanie, czego potrzebują użytkownicy i jak myślą. Poznajemy Twoje cele, użytkowników i ogólny obraz, zanim jeszcze zaczniemy szkicować.",
+            "tag": {
+              "0": "Zrozumienie swoich potrzeb",
+              "1": "A także potrzeby użytkowników"
+            },
+            "title": "Odkrycia i badania"
+          },
+          "1": {
+            "desc": "Czas wykonać pierwszy ruch! Mapujemy szkielety i tworzymy interaktywne prototypy, aby pokazać układ i przepływ. Pomyśl o tym jak o szkielecie swojego przyszłego cyfrowego arcydzieła - jeszcze bez ubrań, ale już wygląda całkiem nieźle!",
+            "tag": "Gdzie zaczyna się zabawa",
+            "title": "Tworzenie schematów i prototypów"
+          },
+          "2": {
+            "desc": "Teraz dodajemy zabawne rzeczy - kolory, typografię, ikony i wszystkie elementy wizualne, które sprawiają, że Twój projekt jest pop! To tutaj bierzemy szkielet i przekształcamy go w coś pięknego. Chodzi o równowagę - funkcjonalność spotyka się z estetyką, aby stworzyć projekt, który jest tak gładki, jak stylowy.",
+            "tag": "Nadawanie blasku",
+            "title": "Projekt wizualny"
+          },
+          "3": {
+            "desc": "Czas przetestować nasz projekt! Angażujemy prawdziwych użytkowników w prototyp, zbieramy ich opinie i identyfikujemy wszelkie punkty tarcia. Cel? Aby udoskonalić podróż użytkownika i zapewnić płynne doświadczenie dla wszystkich użytkowników.",
+            "tag": "Informacja zwrotna = poprawa",
+            "title": "Testy użytkownika"
+          },
+          "4": {
+            "desc": "Gdy wszystko jest już dopracowane, przekazujemy je zespołowi programistów, upewniając się, że każdy piksel jest na swoim miejscu, a projekt płynnie przechodzi w fazę rozwoju. Nasza współpraca zapewnia, że produkt końcowy nie tylko wygląda świetnie, ale także działa bezbłędnie.",
+            "tag": "The Final Push",
+            "title": "Przekazanie rozwoju"
+          },
+          "5": {
+            "desc": "Wierzymy, że projekt nigdy nie jest naprawdę ukończony. Po uruchomieniu nadal monitorujemy, zbieramy opinie użytkowników i iterujemy w celu ulepszenia. Cyfrowy świat nieustannie się zmienia, a my pozostajemy na czele, stale dopracowując i ulepszając nasze usługi.",
+            "tag": "Nie zatrzymujemy się po uruchomieniu",
+            "title": "Uruchomienie i iteracja"
+          }
+        },
+        "desc": "W Moddle 3D, nasz przepływ projektowania UI/UX polega na tym, aby podróż użytkowników była płynna, intuicyjna i wręcz zachwycająca. Od burzy mózgów po ostateczne kliknięcia, zapewniamy, że każdy krok jest elementem układanki, tworząc spójne i niezapomniane wrażenia. Oto jak to robimy:",
+        "tag": "Tworzenie bezbłędnych podróży od początku do końca",
+        "title": "Nasz przepływ projektowania UI/UX"
+      },
+      "readyToButton": "Złóż wniosek o wycenę",
+      "readyToText": "Zaprojektujmy go dla Ciebie!",
+      "readyToTitle": {
+        "0": "Mieć całkowicie",
+        "1": "jedyna w swoim rodzaju wizja?"
+      },
+      "services": {
+        "0": "Projektowanie stron internetowych",
+        "1": "Projektowanie aplikacji mobilnych",
+        "10": "Projektowanie interfejsu aplikacji",
+        "11": "Projekt deski rozdzielczej",
+        "12": "Wytyczne dotyczące marki",
+        "13": "Mapowanie podróży użytkownika",
+        "14": "Interaktywne elementy interfejsu użytkownika",
+        "15": "Motion Design for UI",
+        "16": "Rozwój interfejsu użytkownika",
+        "17": "Strategia zaangażowania użytkowników",
+        "18": "Architektura informacji",
+        "19": "Projektowanie wielojęzycznych interfejsów",
+        "2": "User Flow & Wireframing",
+        "3": "Interaktywne prototypy",
+        "4": "Testowanie użyteczności",
+        "5": "Projekt zestawu interfejsu użytkownika",
+        "6": "Projekt strony docelowej",
+        "7": "Responsive Web Design",
+        "8": "Projektowanie interfejsu użytkownika dla e-commerce",
+        "9": "Niestandardowy projekt ikony"
+      },
+      "servicesWeOffer": "Oferowane przez nas usługi",
+      "tag": "Projekty tak płynne, że użytkownicy będą chcieli się przy nich zatrzymać",
+      "title": "Projektowanie UI/UX"
+    },
+    "navigation": {
+      "3DModelling": "Modelowanie 3D",
+      "animationCreation": "Tworzenie animacji",
+      "uiuxDesign": "Projektowanie UI/UX",
+      "videoProduction": "Produkcja wideo"
+    },
+    "videoProduction": {
+      "description": "Sprawmy, że Twoja podróż będzie niezapomniana. Niezależnie od tego, czy jest to reklama, reklama w mediach społecznościowych, czy szczera historia marki, tworzymy filmy, które przyciągają ludzi. Od scenariusza do ekranu, wnosimy kreatywność, zabawę i polot do każdej klatki. Gotowy na zbliżenie?",
+      "readyToButton": "Uzyskaj wycenę teraz",
+      "readyToText": "Niech tak się stanie!",
+      "readyToTitle": { "0": "Mam pomysł na wideo", "1": "to trochę dzikie?" },
+      "services": {
+        "0": "Filmy korporacyjne",
+        "1": "Filmy promujące produkty",
+        "10": "Animowane reklamy wideo",
+        "11": "Filmy zza kulis",
+        "12": "Spoty telewizyjne",
+        "13": "Filmy produktowe 3D",
+        "14": "Filmy edukacyjne",
+        "15": "Filmy z drona",
+        "16": "Filmy 360",
+        "17": "Teledyski",
+        "18": "Interaktywne materiały wideo",
+        "19": "Usługi edycji wideo",
+        "2": "Filmy wideo opowiadające historię marki",
+        "3": "Reklamy",
+        "4": "Filmy instruktażowe",
+        "5": "Relacje wideo z wydarzeń",
+        "6": "Tworzenie treści na YouTube",
+        "7": "Filmy szkoleniowe i instruktażowe",
+        "8": "Filmy wideo w mediach społecznościowych",
+        "9": "Filmiki referencyjne"
+      },
+      "servicesWeOffer": "Oferowane przez nas usługi",
+      "tag": "Gdzie twoja historia jest traktowana jak gwiazda",
+      "title": "Produkcja wideo"
+    }
+  },
+  "servicesHero": {
+    "description": {
+      "0": "Nie tylko oferujemy usługi - tworzymy doświadczenia. Od modeli 3D, które ożywiają Twoje projekty, po animacje, które kradną show - naszym celem jest przekształcenie Twoich kreatywnych marzeń w rzeczywistość.",
+      "1": "Potrzebujesz oszałamiającej strony internetowej, oszałamiającej animacji lub przełomowego modelu 3D? Mamy umiejętności, kreatywność i technologię, aby to urzeczywistnić. Zanurzmy się razem w świat nieograniczonych możliwości - jedynym ograniczeniem jest Twoja wyobraźnia!"
+    },
+    "title": "Przekształcanie \"co by było gdyby\" w \"wow"
+  },
+  "shop": {
+    "description": "Witamy na placu zabaw Moddle 3D, gdzie twoje najśmielsze pomysły przechodzą od \"tylko myśli\" do \"spójrz na to!\" za pomocą kilku kliknięć. Od dziwacznego wystroju domu po kultowe postacie filmowe, nasze modele 3D zostały zaprojektowane tak, aby ożywić Twoje kreatywne wizje bez skomplikowania. Przejrzyj naszą kolekcję, wybierz swój ulubiony i zamieńmy te genialne pomysły w namacalne wydruki.",
+    "label": "Kto by pomyślał, że drukowanie 3D może być tak zabawne?",
+    "title": {
+      "0": "Modele 3D, które urzeczywistniają Twoje pomysły",
+      "1": "Spaceruj, rozmawiaj i drukuj"
+    }
+  },
+  "shopHero": { "back": "Powrót" },
+  "sidebar": {
+    "history": "Historia",
+    "logout": "Wylogowanie",
+    "settings": "Ustawienia",
+    "wishlist": "Lista życzeń"
+  },
+  "specialOffers": {
+    "button": "Skorzystaj z oferty, zanim zniknie",
+    "label": "Magia ograniczona czasowo! Nie pozwól jej zniknąć!",
+    "text": "Oferujemy ekskluzywne oferty, które pomogą spełnić Twoje cyfrowe marzenia. <br/>Nie czekaj - te oferty nie będą trwać wiecznie.",
+    "title": "Oferty specjalne"
+  },
+  "termsOfUse": {
+    "contactDescription": "W razie pytań prosimy o kontakt pod adresem:",
+    "contactTitle": "Informacje kontaktowe"
+  },
+  "thanksPopup": {
+    "close": "Kontynuuj",
+    "description": "Dziękujemy za skontaktowanie się z Moddle 3D. Cieszymy się, że możemy urzeczywistnić Twoją wizję i współpracować nad czymś niezwykłym. Nasz zespół wkrótce skontaktuje się z Tobą, aby rozpocząć tworzenie idealnego rozwiązania dla Twojego projektu. Niech",
+    "title": { "0": "Twoja kreatywność", "1": "Podróż zaczyna się tutaj!" }
+  },
+  "thankyouPage": {
+    "button": "Strona główna",
+    "description": "Dziękujemy za wybranie Moddle 3D - Twoja kreatywna podróż zaczyna się teraz! Nasz zespół wkrótce się z Tobą skontaktuje, aby potwierdzić szczegóły i zacząć działać. Nie możemy się doczekać, aby urzeczywistnić Twoją wizję!",
+    "title": "Woohoo! Zamówienie złożone!"
+  },
+  "trendsCta": {
+    "animationsIn2025WhatsHotAndWhatsNot": {
+      "btn": "Gotowy, by ożywić swoje pomysły na animacje?",
+      "title": "Gotowy, by ożywić swoje pomysły na animacje?"
+    },
+    "theRiseOf3dPrintingWhatsNext": {
+      "btn": "Poznaj nasze modele 3D w sklepie",
+      "title": "Gotowy do ożywienia swoich projektów 3D?"
+    },
+    "uiuxDesignTrendsMakingDigitalSpacesMoreHuman": {
+      "btn": "Poznaj nasze rozwiązania w zakresie projektowania UI/UX",
+      "title": "Czy jesteś gotowy, aby stworzyć doświadczenie projektowe, które jest tak wyjątkowe, jak Twoi użytkownicy?"
+    },
+    "videoContentIn2025InteractiveImmersiveAndEverywhere": {
+      "btn": "Poznaj nasze pakiety produkcji wideo",
+      "title": "Gotowy do tworzenia treści wideo, które wyróżnią się w 2025 roku?"
+    }
+  },
+  "trendsHero": {
+    "description": "W Moddle 3D staramy się być na bieżąco. To tutaj omawiamy trendy, dzielimy się spostrzeżeniami i informujemy na bieżąco o wszystkim, co ekscytujące w świecie modelowania 3D, animacji, projektowania UI/UX i produkcji wideo. Poznaj najnowsze innowacje i zobacz, jak kształtują one przyszłość cyfrowej kreatywności.",
+    "title": "Przyszłość kreatywności 3D"
+  },
+  "trends": { "readMore": "Czytaj więcej" },
+  "whatWeDo": {
+    "description": "W Moddle 3D jesteśmy nie tylko projektantami - jesteśmy magikami. Tworzymy wszystko, od szczegółowych modeli 3D po animacje, które sprawiają, że mówisz \"WOW\". Potrzebujesz cyfrowego doświadczenia, którego użytkownicy nie zapomną? Oferujemy oszałamiające projekty UI/UX. Pomyśl o nas jak o matkach chrzestnych treści cyfrowych, tylko o wiele fajniejszych.",
+    "label": "Zamieniamy pomysły w rzeczywistość 3D... (poważnie)",
+    "title": "Czym się zajmujemy"
+  },
+  "whyChoose": {
+    "button": "Zobacz jak inspirujemy",
+    "description": "Nasza załoga łączy w sobie kreatywność, technologię i odrobinę błyskotliwości. Jesteśmy zespołem, do którego dzwonisz, gdy potrzebujesz czegoś więcej niż tylko modelu 3D lub ładnej animacji. Potrzebujesz partnera, który dostarczy oszałamiające, wysokiej jakości treści z odrobiną zabawy i kreatywności.",
+    "description1": "Zawsze wyprzedzamy konkurencję, wprowadzając najnowsze techniki do naszej pracy.",
+    "description2": "Twoja wizja, nasze projekty. Wszystko, co robimy, jest dostosowane do Twoich potrzeb.",
+    "description3": "Tylko to, co najlepsze. Jeśli nie jest idealny, nie zatrzymujemy się, dopóki nie będzie.",
+    "description4": "Nasza praca to nie tylko funkcjonalność - to doświadczenie, które zachwyca.",
+    "label": "Nie jesteśmy tylko studiem 3D - jesteśmy twoją kreatywną potęgą",
+    "title": { "0": "Dlaczego warto wybrać", "1": "Moddle 3D?" },
+    "title1": "Innowacja",
+    "title2": "Personalizacja",
+    "title3": "Jakość",
+    "title4": "Kreatywność"
+  },
+  "wishlist": {
+    "addedToWishlist": "Produkt dodany do listy życzeń",
+    "description": "To jest twój kreatywny plac zabaw - miejsce do zapisywania, organizowania i ponownego odwiedzania ulubionych modeli 3D i animacji w dowolnym momencie. To jak osobiste muzeum designu, ale w lepszym wydaniu.",
+    "productId": "ID produktu",
+    "removedFromWishlist": "Produkt usunięty z listy życzeń",
+    "welcome": "Witamy na liście życzeń Moddle 3D!"
+  },
+  "workHero": {
+    "description": "W Moddle 3D nie tylko realizujemy projekty - przekształcamy koncepcje we wciągające kreacje. Od modeli 3D po wciągające animacje, nasza praca to połączenie kreatywności, precyzji i opowiadania historii. Każdy projekt, którego się podejmujemy, jest okazją do wprowadzania innowacji, kwestionowania norm i przekraczania oczekiwań.",
+    "title1": "Przekształcanie pomysłów w sztukę cyfrową"
+  },
+  "work": {
+    "label1": "Przekształć pomysły w wydruki, które mówią same za siebie.",
+    "label2": "Ożyw swoją historię, klatka po klatce.",
+    "label3": "Projekty, które płyną, użytkownicy, którzy zostają.",
+    "label4": "Uchwyć swoją wizję, pozostaw po sobie niezatarte wrażenie.",
+    "text1": "Nasze modele 3D to nie tylko projekty; to wysokiej jakości kreacje gotowe do druku. Niezależnie od tego, czy chodzi o prototypowanie, sztukę czy handel detaliczny, specjalizujemy się w urzeczywistnianiu wizji.",
+    "text2": "Tworzymy animacje, które przyciągają uwagę i opowiadają fascynujące historie. Od treści promocyjnych po pełne wrażenia kinowe, nasze animacje angażują i przykuwają uwagę odbiorców.",
+    "text3": "Tworzymy płynne cyfrowe doświadczenia, które użytkownicy uwielbiają. Nasze projekty UI/UX koncentrują się zarówno na estetyce, jak i funkcjonalności, aby zapewnić płynną, intuicyjną podróż.",
+    "text4": "Tworzymy filmy, które wywierają niezapomniane wrażenie. Niezależnie od tego, czy jest to explainer, reklama czy projekt kinowy, nasze filmy opowiadają Twoją historię w sposób, który zapada w pamięć.",
+    "title1": "Modelowanie 3D na potrzeby druku",
+    "title2": "Tworzenie animacji",
+    "title3": "Projektowanie UI/UX",
+    "title4": "Produkcja wideo"
+  }
+}

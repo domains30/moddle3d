@@ -18,6 +18,7 @@ import { CaretDown } from '../../icons/caret-down';
 import { DEIcon } from '../../icons/countries/de';
 import { GBIcon } from '../../icons/countries/gb';
 import { ITIcon } from '../../icons/countries/it';
+import { PLIcon } from '../../icons/countries/pl';
 import st from './LangSwitcher.module.scss';
 
 export const LangSwitcher = () => {
@@ -61,6 +62,14 @@ export const LangSwitcher = () => {
           </div>
         ),
         value: 'it',
+      },
+      {
+        label: (
+          <div className={st.flag}>
+            <PLIcon /> PL
+          </div>
+        ),
+        value: 'pl',
       },
     ],
     []

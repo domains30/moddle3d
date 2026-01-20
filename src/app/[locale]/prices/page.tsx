@@ -27,7 +27,7 @@ export default async function PricesPage({ params }: { params: Promise<{ locale:
     <>
       <PricesHero />
       {categories.map((category) => (
-        <PricingCategory key={category.id} category={category} />
+        <PricingCategory key={category.id} category={category} locale={locale} />
       ))}
       <PriceList />
       <RequestPackagePopup />

@@ -4,6 +4,20 @@
   background: #1a1b1e;
 }
 
+[lang="pl"]{
+  .header{
+    &__main{
+      &_row{
+        nav{
+          a{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
 .link {
   transition: all 0.3s ease;
 

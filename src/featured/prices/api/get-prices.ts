@@ -29,9 +29,12 @@ export const getPricingCategories = async (locale: string): Promise<PricingCateg
   );
 };
 
-export const getPricingItems = async (categoryId: string): Promise<PricingItem[]> => {
+export const getPricingItems = async (
+  categoryId: string,
+  locale: string
+): Promise<PricingItem[]> => {
   const res = await fetch(
-    `${SERVER_URL}/api/pricing-packages?populate=*&where[category.id][in]=${categoryId}`
+    `${SERVER_URL}/api/pricing-packages?populate=*&where[category.id][in]=${categoryId}&locale=${locale}`
   );
   const data = await res.json();
 
