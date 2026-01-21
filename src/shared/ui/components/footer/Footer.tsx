@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import { useTranslations } from 'next-intl';
 
+import { Facebook, Instagram, X } from '@/shared/ui/icons';
+
 import styles from './Footer.module.scss';
 
 //import { RequestForm } from '@/featured/contact-popup/ui/RequestForm/RequestForm';
@@ -175,17 +177,25 @@ export const Footer = () => {
               fallback: 'All Legal Rights Reserved.',
             })}
           </p>
-          {/* <div className={styles.socials}>
-            <Link href="#">
+          <div className={styles.socials}>
+            <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
               <X />
             </Link>
-            <Link href="#">
+            <Link
+              href="https://www.facebook.com/moddle3d/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Facebook />
             </Link>
-            <Link href="#">
+            <Link
+              href="https://www.instagram.com/moddle3d/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram />
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>

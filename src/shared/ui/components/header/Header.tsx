@@ -58,13 +58,21 @@ export const Header = () => {
             <div className={styles.header__top}>
               <div className={styles.header__top_row}>
                 <div className={styles.socials}>
-                  <Link href="#">
+                  <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
                     <X />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.facebook.com/moddle3d/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Facebook />
                   </Link>
-                  <Link href="#">
+                  <Link
+                    href="https://www.instagram.com/moddle3d/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Instagram />
                   </Link>
                 </div>
