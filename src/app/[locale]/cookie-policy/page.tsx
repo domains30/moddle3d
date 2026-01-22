@@ -18,7 +18,7 @@ export default async function CookiePolicyPage({
 
   return (
     <main>
-      <Hero title={cookiePolicy.title} lastUpdate="2025-08-18" />
+      <Hero title={cookiePolicy.title} lastUpdate="2025-12-19" />
       <Layout>
         <PolicyRenderer content={cookiePolicy.content.root.children} />
         <ContactInfo
