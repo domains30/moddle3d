@@ -9,7 +9,7 @@ import { useLenis } from 'lenis/react';
 import { useTranslations } from 'next-intl';
 
 import { cookies } from '@/shared/lib/utils/cookie';
-import { BurgerMenu, Cart, Facebook, FilledCartIcon, Instagram, X } from '@/shared/ui/icons';
+import { BurgerMenu, Cart, Facebook, FilledCartIcon, X } from '@/shared/ui/icons';
 
 import { LangSwitcher } from '../lang-switcher/LangSwitcher';
 import styles from './Header.module.scss';
@@ -68,13 +68,13 @@ export const Header = () => {
                   >
                     <Facebook />
                   </Link>
-                  <Link
-                    href="https://www.instagram.com/moddle3d/"
+                  {/* {<Link
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Instagram />
-                  </Link>
+                  </Link>} */}
                 </div>
                 <div className={styles.contacts}>
                   <Link href="mailto:info@moddle3d.com" className={styles.link}>
@@ -191,9 +191,9 @@ export const Header = () => {
             <Link href="#">
               <Facebook />
             </Link>
-            <Link href="#">
+            {/* <Link href="#">
               <Instagram />
-            </Link>
+            </Link> */}
           </div>
           <div className={styles.contacts}>
             <Link href="mailto:info@moddle3d.com">info@moddle3d.com</Link>
