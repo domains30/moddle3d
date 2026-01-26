@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import { fadeInUp } from '@/shared/lib/helpers/animations';
-import { Facebook, X } from '@/shared/ui/icons';
+import { Facebook, Linkedin, X } from '@/shared/ui/icons';
 import { Text, Title } from '@/shared/ui/kit';
 
 import styles from './GetInTouch.module.scss';
@@ -131,6 +131,13 @@ export const GetInTouch = () => {
                   >
                     <Instagram />
                   </Link> */}
+                  <Link
+                    href="https://www.linkedin.com/company/moddle3d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin />
+                  </Link>
                 </div>
               </div>
             </motion.div>

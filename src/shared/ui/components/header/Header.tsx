@@ -9,7 +9,7 @@ import { useLenis } from 'lenis/react';
 import { useTranslations } from 'next-intl';
 
 import { cookies } from '@/shared/lib/utils/cookie';
-import { BurgerMenu, Cart, Facebook, FilledCartIcon, X } from '@/shared/ui/icons';
+import { BurgerMenu, Cart, Facebook, FilledCartIcon, Linkedin, X } from '@/shared/ui/icons';
 
 import { LangSwitcher } from '../lang-switcher/LangSwitcher';
 import styles from './Header.module.scss';
@@ -68,13 +68,13 @@ export const Header = () => {
                   >
                     <Facebook />
                   </Link>
-                  {/* {<Link
-                    href="#"
+                  <Link
+                    href="https://www.linkedin.com/company/moddle3d"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Instagram />
-                  </Link>} */}
+                    <Linkedin />
+                  </Link>
                 </div>
                 <div className={styles.contacts}>
                   <Link href="mailto:info@moddle3d.com" className={styles.link}>
@@ -185,15 +185,23 @@ export const Header = () => {
         )}
         <div className={styles.bottom}>
           <div className={styles.socials}>
-            <Link href="#">
+            <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
               <X />
             </Link>
-            <Link href="#">
+            <Link
+              href="https://www.facebook.com/moddle3d/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Facebook />
             </Link>
-            {/* <Link href="#">
-              <Instagram />
-            </Link> */}
+            <Link
+              href="https://www.linkedin.com/company/moddle3d"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin />
+            </Link>
           </div>
           <div className={styles.contacts}>
             <Link href="mailto:info@moddle3d.com">info@moddle3d.com</Link>
