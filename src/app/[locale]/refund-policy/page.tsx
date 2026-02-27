@@ -18,7 +18,7 @@ export default async function RefundPolicyPage({
 
   return (
     <main>
-      <Hero title={refundPolicy.title} lastUpdate="2025-12-19" />
+      <Hero title={refundPolicy.title} />
       <Layout>
         <PolicyRenderer content={refundPolicy.content.root.children} />
         <ContactInfo title={t('contactTitle', { fallback: 'Contact Information' })} />

@@ -14,7 +14,7 @@ export default async function TermsOfUsePage({ params }: { params: Promise<{ loc
 
   return (
     <main>
-      <Hero title={termsOfUse.title} lastUpdate="2025-12-19" />
+      <Hero title={termsOfUse.title} />
       <Layout>
         <PolicyRenderer content={termsOfUse.content.root.children} />
         <ContactInfo

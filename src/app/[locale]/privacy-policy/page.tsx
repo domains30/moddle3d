@@ -18,7 +18,7 @@ export default async function PrivacyPolicyPage({
 
   return (
     <main>
-      <Hero title={privacyPolicy.title} lastUpdate="2025-12-19" />
+      <Hero title={privacyPolicy.title} />
       <Layout>
         <PolicyRenderer content={privacyPolicy.content.root.children} />
         <ContactInfo
