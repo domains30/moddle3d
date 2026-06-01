@@ -132,6 +132,7 @@
     }
   },
   "cart": {
+    "remove": "Entfernen",
     "checkout": "Kasse",
     "emptyCart": "Huch! Ihr Warenkorb ist ein wenig leer...",
     "emptyCartDescription": "Keine Sorge, wir haben jede Menge toller 3D-Modelle für dich parat! Erkunde unsere Kollektion und fülle deinen Warenkorb mit den coolsten Designs, um deine Ideen zum Leben zu erwecken!",

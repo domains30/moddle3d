@@ -9,7 +9,7 @@ import { useLenis } from 'lenis/react';
 import { useTranslations } from 'next-intl';
 
 import { cookies } from '@/shared/lib/utils/cookie';
-import { BurgerMenu, Cart, Facebook, FilledCartIcon, Linkedin, X } from '@/shared/ui/icons';
+import { BurgerMenu, Cart, Facebook, Linkedin, X } from '@/shared/ui/icons';
 
 import { LangSwitcher } from '../lang-switcher/LangSwitcher';
 import styles from './Header.module.scss';
@@ -48,7 +48,15 @@ export const Header = () => {
     }
   }, [isMobileMenuOpen, lenis]);
 
-  const { isCartFilled } = useCartStore();
+  const { isCartFilled, cart } = useCartStore();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const cartCount = isMounted ? cart.length : 0;
 
   return (
     <>
@@ -129,7 +137,8 @@ export const Header = () => {
               </nav>
               <div className={styles.actions}>
                 <Link href="/cart" className={styles.cart}>
-                  {isCartFilled ? <FilledCartIcon /> : <Cart />}
+                  {isCartFilled ? <Cart /> : <Cart />}
+                  {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
                 </Link>
                 {user ? (
                   <span className={styles.badgeWrapper}>

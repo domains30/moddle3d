@@ -264,6 +264,7 @@
     "createAccount": "Create Account"
   },
   "cart": {
+    "remove": "Remove",
     "price": "Price",
     "subtotal": "Subtotal",
     "orderSummary": "Your Order Summary",

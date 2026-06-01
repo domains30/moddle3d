@@ -160,6 +160,7 @@
     "title": "Dostęp do konta"
   },
   "checkout": {
+    "remove": "Usuń",
     "address1": "Linia adresowa 1",
     "address2": "Linia adresowa 2",
     "bankTransfer": "Przelew bankowy",

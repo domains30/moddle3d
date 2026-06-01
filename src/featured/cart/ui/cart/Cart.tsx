@@ -1,9 +1,10 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import { useTranslations } from 'next-intl';
 
-import { Minus, Plus } from '@/shared/ui/icons';
+import { Minus, Plus, Trash } from '@/shared/ui/icons';
 import { Button } from '@/shared/ui/kit/button/Button';
 import { Text } from '@/shared/ui/kit/text/Text';
 import { Title } from '@/shared/ui/kit/title/Title';
@@ -12,8 +13,14 @@ import { useCartStore } from '../../model/store';
 import styles from './Cart.module.scss';
 
 export const Cart = () => {
-  const { cart, total, decrementQuantity, incrementQuantity } = useCartStore();
+  const { cart, total, decrementQuantity, incrementQuantity, removeFromCart } = useCartStore();
   const t = useTranslations('cart');
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section className={styles.cart}>
@@ -27,11 +34,18 @@ export const Cart = () => {
       />
       <div className={styles.cart__bg}></div>
       <div className={'_container'}>
-        {cart.length > 0 ? (
+        {isMounted && cart.length > 0 ? (
           <div className={styles.cart__content}>
             <div className={styles.col1}>
               {cart.map((item) => (
                 <div className={styles.item} key={item.id}>
+                  <button
+                    className={styles.item__remove}
+                    onClick={() => removeFromCart(item.id)}
+                    aria-label={t('remove', { fallback: 'Remove' })}
+                  >
+                    <Trash />
+                  </button>
                   <div className={styles.item__image}>
                     <Image src={item.image} alt={item.name} width={200} height={200} />
                   </div>

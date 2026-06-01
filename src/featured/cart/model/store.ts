@@ -6,6 +6,26 @@ import { notifySuccess } from '@/shared/lib/utils/notify';
 
 import type { CartItem } from './types';
 
+const getStoredCart = (): CartItem[] => {
+  if (typeof window === 'undefined') return [];
+  try {
+    const parsed = JSON.parse(localStorage.getItem('cart') || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
+const getStoredTotal = (): number => {
+  if (typeof window === 'undefined') return 0;
+  try {
+    const parsed = JSON.parse(localStorage.getItem('total') || '0');
+    return typeof parsed === 'number' && !Number.isNaN(parsed) ? parsed : 0;
+  } catch {
+    return 0;
+  }
+};
+
 type CartStore = {
   cart: CartItem[];
   total: number;
@@ -21,8 +41,8 @@ type CartStore = {
 
 export const useCartStore = create<CartStore>((set, get) => {
   return {
-    cart: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('cart') || '[]') : [],
-    total: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('total') || '0') : 0,
+    cart: getStoredCart(),
+    total: getStoredTotal(),
     isCartFilled: false,
     setIsCartFilled: (isCartFilled: boolean) => {
       set({ isCartFilled });
