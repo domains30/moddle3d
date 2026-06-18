@@ -180,10 +180,10 @@
     "orderSummary": "Riepilogo dell'ordine",
     "paymentMethod": "Metodo di pagamento",
     "paymentNote": "*Dopo aver effettuato un ordine, riceverete un'e-mail con le istruzioni per il pagamento, comprese le nostre coordinate bancarie e un riepilogo dell'acquisto.",
-    "refundPolicy": "Ho letto e accetto la Politica dei rimborsi.",
+    "refundPolicy": "Ho letto e accetto la <link>Politica dei rimborsi</link>.",
     "safeAndSound": "Le vostre informazioni, sane e salve!",
     "safeAndSoundDescription": "Utilizziamo i vostri dati per farvi pervenire l'ordine, per rendere più fluida la vostra esperienza di navigazione e per altri scopi interessanti descritti nella nostra Informativa sulla privacy. Non preoccupatevi, abbiamo tutto sotto controllo!",
-    "termsAndConditions": "Ho letto e accetto i Termini e le Condizioni del sito web.",
+    "termsAndConditions": "Ho letto e accetto i <link>Termini e le Condizioni</link> del sito web.",
     "total": "Totale",
     "zip": "Codice postale"
   },
@@ -539,7 +539,7 @@
     "username": "Nome utente"
   },
   "requestForm": {
-    "agree": "Accetto le Condizioni d'uso e l'Informativa sulla privacy.",
+    "agree": "Accetto le <terms>Condizioni d'uso</terms> e l'<privacy>Informativa sulla privacy</privacy>.",
     "agreement": "Rispettiamo la vostra privacy. <br/>Le vostre informazioni non saranno mai condivise.",
     "email": "Email",
     "firstName": "Nome",
@@ -756,6 +756,16 @@
     "contactDescription": "Per qualsiasi domanda, contattateci all'indirizzo:",
     "contactTitle": "Informazioni di contatto"
   },
+  "authPopup": {
+    "title": "Questa email ha già un account",
+    "description": "Accedi per continuare con il tuo account esistente.",
+    "email": "Email",
+    "password": "Password",
+    "login": "Accedi",
+    "loggingIn": "Accesso in corso...",
+    "forgotPassword": "Password dimenticata?",
+    "error": "Email o password non validi. Riprova."
+  },
   "thanksPopup": {
     "close": "Continua",
     "description": "Grazie per aver contattato Moddle 3D. Siamo entusiasti di dare vita alla vostra visione e di collaborare a qualcosa di straordinario. Il nostro team si metterà presto in contatto con voi per iniziare a creare la soluzione perfetta per il vostro progetto. Lasciate che",
@@ -763,7 +773,7 @@
   },
   "thankyouPage": {
     "button": "Casa",
-    "description": "Grazie per aver scelto Moddle 3D - il vostro viaggio creativo inizia ora! Il nostro team si metterà presto in contatto con voi per confermare i dettagli e iniziare a lavorare. Non vediamo l'ora di dare vita alla vostra visione!",
+    "description": "Stiamo elaborando il tuo ordine. Entro pochi minuti dovresti ricevere un'email con le credenziali del tuo account e i dettagli dell'ordine. Non hai ricevuto nulla? Controlla la cartella spam. Ancora niente? Contattaci all'indirizzo <mail>info@moddle3d.com</mail> e saremo lieti di aiutarti!",
     "title": "Woohoo! Il vostro ordine è arrivato!"
   },
   "trendsCta": {

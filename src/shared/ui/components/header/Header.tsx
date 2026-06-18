@@ -145,14 +145,9 @@ export const Header = () => {
                     <UserBadge firstName={user.firstName} />
                   </span>
                 ) : (
-                  <>
-                    <Link href="/login" className={styles.login}>
-                      {t('login', { fallback: 'Login' })}
-                    </Link>
-                    <Link href="/registration" className={styles.signup}>
-                      {t('signup', { fallback: 'Sign Up' })}
-                    </Link>
-                  </>
+                  <Link href="/login" className={styles.login}>
+                    {t('login', { fallback: 'Login' })}
+                  </Link>
                 )}
                 <span
                   className={styles.burger}
@@ -186,9 +181,6 @@ export const Header = () => {
           <div className={styles.actions}>
             <Link href="/login" className={styles.loginMobile}>
               {t('login', { fallback: 'Login' })}
-            </Link>
-            <Link href="/registration" className={styles.signupMobile}>
-              {t('signup', { fallback: 'Sign Up' })}
             </Link>
           </div>
         )}

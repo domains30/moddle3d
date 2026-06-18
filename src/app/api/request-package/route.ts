@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
+import { EMAIL_FROM } from '@/shared/config/env';
+
 type ContactRequestData = {
   firstName: string;
   lastName: string;
@@ -19,10 +21,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     const { firstName, lastName, email, phone, message, estimatedBudget, packageName } = bodyJSON;
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-    
+
     const msg = {
       to: process.env.ADMIN_EMAIL!,
-      from: process.env.FROM_EMAIL!,
+      from: EMAIL_FROM,
       subject: 'New package request',
       html: `
         <h2>New package request</h2>

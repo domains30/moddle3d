@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 import sgMail from '@sendgrid/mail';
 
+import { EMAIL_FROM } from '@/shared/config/env';
+
 type ContactRequestData = {
   firstName: string;
   lastName: string;
@@ -19,7 +21,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     // Create email content
     const msg = {
       to: process.env.ADMIN_EMAIL!,
-      from: process.env.FROM_EMAIL!,
+      from: EMAIL_FROM,
       subject: 'New request',
       html: `
         <h2>New request</h2>

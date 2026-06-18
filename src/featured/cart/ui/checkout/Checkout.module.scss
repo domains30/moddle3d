@@ -237,7 +237,7 @@
           width: 100%;
         }
 
-        button {
+        .submit {
           width: 100%;
           display: flex;
           padding: 16px 32px;
@@ -329,6 +329,17 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+        }
+        .summaryHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          width: 100%;
+        }
+        .policyLink {
+          color: #2583ff;
+          text-decoration: underline;
         }
         .items {
           display: flex;

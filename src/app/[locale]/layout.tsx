@@ -11,6 +11,7 @@ import { CookiePopup } from '@/shared/ui/components/cookie-popup';
 import '@/shared/lib/styles/null.scss';
 import '@/shared/lib/styles/base.scss';
 
+import { AuthPopup } from '@/featured/auth-popup/ui/AuthPopup';
 import { ThanksPopup } from '@/featured/thanks-popup/ui/ThanksPopup';
 import { WishlistProvider } from '@/featured/wishlist/ui/wishlist-provider';
 
@@ -51,6 +52,7 @@ export default async function RootLayout({
             {children}
             <Footer />
             <ThanksPopup />
+            <AuthPopup />
             <Toaster />
             <Preloader />
             <CookiePopup />

@@ -105,13 +105,32 @@ export const RequestForm = ({ submitLabel }: { submitLabel?: string }) => {
         {errors.agree && <p className={styles.error}>{errors.agree.message}</p>}
         <label className={styles.agree}>
           <input {...register('agree')} type="checkbox" />
-          <span
-            dangerouslySetInnerHTML={{
-              __html: t('agree', {
-                fallback: 'I agree to the Terms of Use and Privacy Policy.',
-              }),
-            }}
-          />
+          <span>
+            {t.rich('agree', {
+              terms: (chunks) => (
+                <a
+                  href="/terms-of-use"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.policyLink}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {chunks}
+                </a>
+              ),
+              privacy: (chunks) => (
+                <a
+                  href="/privacy-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.policyLink}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
+          </span>
         </label>
       </div>
 

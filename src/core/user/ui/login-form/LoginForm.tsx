@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -69,17 +68,11 @@ export const LoginForm = () => {
           </Url>
         </div>
       </section>
-      <div className={st.pairLayout}>
-        <Btn type="submit" fullWidth disabled={isSubmitting}>
-          {isSubmitting
-            ? t('loggingIn', { fallback: 'Logging in...' })
-            : t('login', { fallback: 'Login' })}
-        </Btn>
-        <Link href="/registration" className={st.link}>
-          {t('dontHaveAccount', { fallback: 'First time here?' })}{' '}
-          <span>{t('create', { fallback: 'Create your account' })}</span>
-        </Link>
-      </div>
+      <Btn type="submit" fullWidth disabled={isSubmitting}>
+        {isSubmitting
+          ? t('loggingIn', { fallback: 'Logging in...' })
+          : t('login', { fallback: 'Login' })}
+      </Btn>
     </form>
   );
 };

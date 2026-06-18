@@ -30,19 +30,24 @@ export default function ThankYouPage() {
               }),
             }}
           />
-          <p
-            dangerouslySetInnerHTML={{
-              __html: t('description', {
-                fallback:
-                  'Thank you for choosing Moddle 3D — your creative journey starts now! Our team will be in touch soon to confirm the details and get things rolling. We can’t wait to bring your vision to life!',
-              }),
-            }}
-          />
+          <p>
+            {t.rich('description', {
+              mail: (chunks) => (
+                <a
+                  href="mailto:info@moddle3d.com"
+                  style={{ color: '#2583FF', textDecoration: 'underline' }}
+                >
+                  {chunks}
+                </a>
+              ),
+            })}
+          </p>
           <Button
             text={t('button', {
               fallback: 'Home',
             })}
-            type="button"
+            type="link"
+            href="/"
           />
         </div>
       </div>

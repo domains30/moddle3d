@@ -195,7 +195,7 @@
   },
   "thankyouPage": {
     "title": "Woohoo! Your Order is In!",
-    "description": "Thank you for choosing Moddle 3D — your creative journey starts now! Our team will be in touch soon to confirm the details and get things rolling. We can’t wait to bring your vision to life!",
+    "description": "We’re processing your order. Within a few minutes, you should receive an email with your account credentials and order details. Didn’t receive anything? Check your spam folder. Still can’t find it? Contact us at <mail>info@moddle3d.com</mail> and we’ll gladly help you!",
     "button": "Home"
   },
   "trendsHero": {
@@ -293,8 +293,8 @@
     "total": "Total",
     "loading": "Loading...",
     "checkout": "Submit",
-    "termsAndConditions": "I have read and agree to the website’s Terms and Conditions.",
-    "refundPolicy": "I have read and agree to the Refund Policy.",
+    "termsAndConditions": "I have read and agree to the website’s <link>Terms and Conditions</link>.",
+    "refundPolicy": "I have read and agree to the <link>Refund Policy</link>.",
     "safeAndSound": "Your Info, Safe & Sound!",
     "safeAndSoundDescription": "We use your details to get your order to you, make your browsing experience smoother, and for other cool stuff outlined in our Privacy Policy. No worries, we’ve got it all covered!",
     "emptyCart": "Oops! Your Cart is a Little Empty...",
@@ -370,7 +370,7 @@
     "lastName": "Last Name",
     "email": "Email",
     "message": "Message",
-    "agree": "I agree to the Terms of Use and Privacy Policy.",
+    "agree": "I agree to the <terms>Terms of Use</terms> and <privacy>Privacy Policy</privacy>.",
     "loading": "Loading...",
     "submit": "Grab the Offer Before It Vanishes",
     "agreement": "We respect your privacy. <br/>Your information will never be shared.",
@@ -385,6 +385,16 @@
     "loading": "Loading...",
     "submit": "Claim Your Creative Power!",
     "success": "Request sent successfully"
+  },
+  "authPopup": {
+    "title": "This email already has an account",
+    "description": "Please log in to continue with your existing account.",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "loggingIn": "Logging in...",
+    "forgotPassword": "Forgot Password?",
+    "error": "Invalid email or password. Please try again."
   },
   "thanksPopup": {
     "title": {

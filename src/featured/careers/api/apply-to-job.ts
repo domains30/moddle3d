@@ -2,7 +2,7 @@
 
 import sgMail from '@sendgrid/mail';
 
-import { ADMIN_EMAIL, FROM_EMAIL, SENDGRID_API_KEY } from '@/shared/config/env';
+import { ADMIN_EMAIL, EMAIL_FROM, SENDGRID_API_KEY } from '@/shared/config/env';
 
 import type { CareerSchema } from '../model/schema';
 
@@ -44,7 +44,7 @@ export const applyToJob = async ({
 
     const msg = {
       to: ADMIN_EMAIL,
-      from: FROM_EMAIL,
+      from: EMAIL_FROM,
       subject: `New Job Application`,
       html: `
       <h2>New Job Application</h2>

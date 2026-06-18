@@ -1,3 +1,4 @@
+import { moddleEmailFooter } from './credentials-body';
 import { htmlTemplate } from './html-template';
 
 export const requestFormBody = ({ username }: { username: string }) => {
@@ -17,9 +18,7 @@ export const requestFormBody = ({ username }: { username: string }) => {
             <p style="color: #fff; font-size: 20px; font-weight: 600;">Best, <br /><span style="color: #2583FF;">The Moddle 3D Team</span></p>
           </div>
         </div>
-        <div>
-          <img src="https://moddle3d.com/images/email/footer.png" alt="full-logo" width="595" height="100" />
-        </div>
+        ${moddleEmailFooter}
       </div>
     `,
     style: `      

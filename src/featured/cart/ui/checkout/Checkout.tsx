@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 
+import { formatPrice } from '@/shared/config/currencies';
 import { useCountryCode } from '@/shared/lib/hooks/use-country';
 import { Button } from '@/shared/ui/kit/button/Button';
 import CountrySelect from '@/shared/ui/kit/country-select/CountrySelect';
@@ -19,6 +20,12 @@ import { type CheckoutFormSchema, checkoutFormSchema } from '../../model/schema'
 import { useCartStore } from '../../model/store';
 import styles from './Checkout.module.scss';
 
+import { checkEmailExists } from '@/core/user/api/check-email';
+import { useUserStore } from '@/core/user/model/user.store';
+import { useAuthPopupStore } from '@/featured/auth-popup/store/store';
+import { useCurrencyStore } from '@/featured/currency/model/store';
+import { CurrencySelect } from '@/featured/currency/ui/CurrencySelect';
+
 /*const getCountryOptionByCode = (code: string) => {
   const countries = countryList().getData();
   return countries.find((country) => country.value === code);
@@ -26,6 +33,9 @@ import styles from './Checkout.module.scss';
 
 export const Checkout = () => {
   const { cart, clearCart, total } = useCartStore();
+  const { currency } = useCurrencyStore();
+  const { user, setUser } = useUserStore();
+  const { open: openAuthPopup } = useAuthPopupStore();
   const t = useTranslations('checkout');
   const router = useRouter();
 
@@ -43,12 +53,16 @@ export const Checkout = () => {
     resolver: zodResolver(checkoutFormSchema),
   });
 
-  const onSubmit = async (data: CheckoutFormSchema) => {
+  const placeOrder = async (data: CheckoutFormSchema) => {
     try {
       setIsLoading(true);
-      console.log(data);
-      await postOrder(data, total, cart);
-      console.log(data);
+      const result = await postOrder(data, total, cart, currency);
+
+      // A brand-new guest account is logged in automatically by postOrder.
+      if (result?.authUser) {
+        setUser(result.authUser);
+      }
+
       setTimeout(() => {
         reset();
         setIsLoading(false);
@@ -61,6 +75,23 @@ export const Checkout = () => {
       console.error(error);
       setIsLoading(false);
     }
+  };
+
+  const onSubmit = async (data: CheckoutFormSchema) => {
+    // If the shopper isn't logged in but the email already belongs to an
+    // account, ask them to log in before we place the order.
+    if (!user) {
+      const exists = await checkEmailExists(data.email);
+      if (exists) {
+        openAuthPopup({
+          email: data.email,
+          onSuccess: () => placeOrder(data),
+        });
+        return;
+      }
+    }
+
+    await placeOrder(data);
   };
 
   return (
@@ -206,20 +237,23 @@ export const Checkout = () => {
             </div>
             <div className={styles.col2}>
               <div className={styles.inner}>
-                <h4>{t('orderSummary', { fallback: 'Your Order Summary' })}</h4>
+                <div className={styles.summaryHeader}>
+                  <h4>{t('orderSummary', { fallback: 'Your Order Summary' })}</h4>
+                  <CurrencySelect />
+                </div>
                 <div className={styles.items}>
                   {cart.map((item) => (
                     <div className={styles.item} key={item.id}>
                       <p>
                         {item.name} x {item.quantity}
                       </p>
-                      <span>€{item.subtotal}</span>
+                      <span>{formatPrice(item.subtotal, currency)}</span>
                     </div>
                   ))}
                 </div>
                 <div className={styles.total}>
                   <p>{t('total', { fallback: 'Total' })}</p>
-                  <p>€{total}</p>
+                  <p>{formatPrice(total, currency)}</p>
                 </div>
                 <button type="submit" className={styles.submit}>
                   {isLoading
@@ -240,14 +274,21 @@ export const Checkout = () => {
                     )}
                     <label className={styles.agree}>
                       <input {...register('termsAndConditions')} type="checkbox" />
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: t('termsAndConditions', {
-                            fallback:
-                              'I have read and agree to the website’s Terms and Conditions.',
-                          }),
-                        }}
-                      />
+                      <span>
+                        {t.rich('termsAndConditions', {
+                          link: (chunks) => (
+                            <a
+                              href="/terms-of-use"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.policyLink}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {chunks}
+                            </a>
+                          ),
+                        })}
+                      </span>
                     </label>
                   </div>
 
@@ -259,13 +300,21 @@ export const Checkout = () => {
                     )}
                     <label className={styles.agree}>
                       <input {...register('refundPolicy')} type="checkbox" />
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: t('refundPolicy', {
-                            fallback: 'I have read and agree to the Refund Policy.',
-                          }),
-                        }}
-                      />
+                      <span>
+                        {t.rich('refundPolicy', {
+                          link: (chunks) => (
+                            <a
+                              href="/refund-policy"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.policyLink}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {chunks}
+                            </a>
+                          ),
+                        })}
+                      </span>
                     </label>
                   </div>
                 </div>

@@ -47,7 +47,7 @@ export const OurSolutions = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Link href="#">
+            <Link href="/services#3d-modelling">
               <Image src="/images/home/solution1.png" alt="card1" width={491} height={250} />
               <Title
                 tag="h3"
@@ -75,7 +75,7 @@ export const OurSolutions = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Link href="#">
+            <Link href="/services#animation-creation">
               <Image src="/images/home/solution2.png" alt="card2" width={491} height={250} />
               <Title
                 tag="h3"
@@ -102,7 +102,7 @@ export const OurSolutions = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Link href="#">
+            <Link href="/services#video-production">
               <Image src="/images/home/solution3.png" alt="card3" width={491} height={250} />
               <Title
                 tag="h3"
@@ -129,7 +129,7 @@ export const OurSolutions = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Link href="#">
+            <Link href="/services#ui-ux-design">
               <Image src="/images/home/solution4.png" alt="card3" width={491} height={250} />
               <Title
                 tag="h3"

@@ -2,7 +2,7 @@
 
 import sgMail from '@sendgrid/mail';
 
-import { ADMIN_EMAIL, FROM_EMAIL, SENDGRID_API_KEY } from '@/shared/config/env';
+import { ADMIN_EMAIL, EMAIL_FROM, SENDGRID_API_KEY } from '@/shared/config/env';
 
 import type { RequestFormSchema } from '../model/schema';
 
@@ -15,7 +15,7 @@ export const sendContactForm = async (data: RequestFormSchema) => {
 
   const msg = {
     to: ADMIN_EMAIL,
-    from: FROM_EMAIL,
+    from: EMAIL_FROM,
     subject: `New Contact Request`,
     html: `
     <h2>New Contact Request</h2>
@@ -28,7 +28,7 @@ export const sendContactForm = async (data: RequestFormSchema) => {
 
   const userMsg = {
     to: email,
-    from: FROM_EMAIL,
+    from: EMAIL_FROM,
     subject: `We Got Your Request! Time to Make Some Magic – Moddle 3D`,
     html: requestFormBody({ username: firstName }),
   };

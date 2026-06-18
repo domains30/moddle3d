@@ -180,10 +180,10 @@
     "orderSummary": "Podsumowanie zamówienia",
     "paymentMethod": "Metoda płatności",
     "paymentNote": "*Po złożeniu zamówienia otrzymasz wiadomość e-mail z instrukcjami dotyczącymi płatności, w tym naszymi danymi bankowymi i podsumowaniem zakupu.",
-    "refundPolicy": "Zapoznałem się i akceptuję zasady zwrotu kosztów.",
+    "refundPolicy": "Zapoznałem się i akceptuję <link>zasady zwrotu kosztów</link>.",
     "safeAndSound": "Twoje informacje, bezpieczne i zdrowe!",
     "safeAndSoundDescription": "Używamy Twoich danych, aby dostarczyć Ci zamówienie, ułatwić Ci przeglądanie stron i do innych fajnych rzeczy opisanych w naszej Polityce prywatności. Nie martw się, mamy wszystko pod kontrolą!",
-    "termsAndConditions": "Przeczytałem i akceptuję Warunki korzystania z witryny.",
+    "termsAndConditions": "Przeczytałem i akceptuję <link>Warunki korzystania</link> z witryny.",
     "total": "Łącznie",
     "zip": "Kod pocztowy"
   },
@@ -539,7 +539,7 @@
     "username": "Nazwa użytkownika"
   },
   "requestForm": {
-    "agree": "Zgadzam się z Warunkami użytkowania i Polityką prywatności.",
+    "agree": "Zgadzam się z <terms>Warunkami użytkowania</terms> i <privacy>Polityką prywatności</privacy>.",
     "agreement": "Szanujemy Twoją prywatność. <br/>Twoje dane nigdy nie będą udostępniane.",
     "email": "E-mail",
     "firstName": "Imię",
@@ -762,6 +762,16 @@
     "contactDescription": "W razie pytań prosimy o kontakt pod adresem:",
     "contactTitle": "Informacje kontaktowe"
   },
+  "authPopup": {
+    "title": "Ten adres e-mail ma już konto",
+    "description": "Zaloguj się, aby kontynuować z istniejącym kontem.",
+    "email": "E-mail",
+    "password": "Hasło",
+    "login": "Zaloguj się",
+    "loggingIn": "Logowanie...",
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "error": "Nieprawidłowy e-mail lub hasło. Spróbuj ponownie."
+  },
   "thanksPopup": {
     "close": "Kontynuuj",
     "description": "Dziękujemy za skontaktowanie się z Moddle 3D. Cieszymy się, że możemy urzeczywistnić Twoją wizję i współpracować nad czymś niezwykłym. Nasz zespół wkrótce skontaktuje się z Tobą, aby rozpocząć tworzenie idealnego rozwiązania dla Twojego projektu. Niech",
@@ -769,7 +779,7 @@
   },
   "thankyouPage": {
     "button": "Strona główna",
-    "description": "Dziękujemy za wybranie Moddle 3D - Twoja kreatywna podróż zaczyna się teraz! Nasz zespół wkrótce się z Tobą skontaktuje, aby potwierdzić szczegóły i zacząć działać. Nie możemy się doczekać, aby urzeczywistnić Twoją wizję!",
+    "description": "Przetwarzamy Twoje zamówienie. W ciągu kilku minut powinieneś otrzymać wiadomość e-mail z danymi logowania do konta oraz szczegółami zamówienia. Nic nie otrzymałeś? Sprawdź folder spam. Nadal nie możesz znaleźć? Skontaktuj się z nami pod adresem <mail>info@moddle3d.com</mail>, a chętnie pomożemy!",
     "title": "Woohoo! Zamówienie złożone!"
   },
   "trendsCta": {

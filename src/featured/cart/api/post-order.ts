@@ -2,16 +2,35 @@
 
 import sgMail from '@sendgrid/mail';
 
-import { FROM_EMAIL, SENDGRID_API_KEY, SERVER_URL } from '@/shared/config/env';
+import {
+  BASE_CURRENCY,
+  convertFromBase,
+  type CurrencyCode,
+  formatPrice,
+} from '@/shared/config/currencies';
+import {
+  EMAIL_FROM,
+  FROM_EMAIL,
+  SENDGRID_API_KEY,
+  SERVER_URL,
+  SITE_URL,
+} from '@/shared/config/env';
 
 import type { CheckoutFormSchema } from '../model/schema';
 import type { CartItem } from '../model/types';
 
+import { login } from '@/core/user/api/login';
+import { credentialsBody } from '@/featured/email-letters/credentials-body';
 import { orderConfirmBody } from '@/featured/email-letters/order-confirm-body';
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
-export const postOrder = async (data: CheckoutFormSchema, total: number, cart: CartItem[]) => {
+export const postOrder = async (
+  data: CheckoutFormSchema,
+  total: number,
+  cart: CartItem[],
+  currency: CurrencyCode = BASE_CURRENCY
+) => {
   console.log('Cart items received:', cart);
   console.log(
     'Cart item IDs:',
@@ -19,6 +38,7 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
   );
 
   let userId = null;
+  let authUser = null;
   const existingUser = await fetchUserByEmail(data.email);
 
   if (existingUser) {
@@ -31,6 +51,33 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
     console.log('newUser', newUser);
 
     userId = newUser.doc.id;
+
+    // Automatically sign the new customer in so they stay logged in after ordering.
+    try {
+      const loginResult = await login({ email: data.email, password });
+      if (loginResult.success) {
+        authUser = loginResult.user;
+      }
+    } catch (error) {
+      console.error('Auto-login after order failed:', error);
+    }
+
+    // Send the new customer their login credentials.
+    try {
+      await sgMail.send({
+        to: data.email,
+        from: EMAIL_FROM,
+        subject: 'Your Moddle 3D account is ready',
+        html: credentialsBody({
+          username: data.firstName,
+          email: data.email,
+          password,
+          loginUrl: `${SITE_URL}/login`,
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to send credentials email:', error);
+    }
   }
 
   const items = await Promise.all(
@@ -61,6 +108,9 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
 
   const orderNumber = `ORD_${Math.floor(Math.random() * 900000) + 100000}`;
 
+  const convertedTotal = convertFromBase(total, currency);
+  const formattedTotal = formatPrice(total, currency);
+
   const orderData = {
     orderNumber,
     user: userId,
@@ -71,7 +121,8 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
       file_url: item.file_url,
       file_name: item.file_name,
     })),
-    total: total,
+    total: convertedTotal,
+    currency,
     status: 'pending',
     paymentMethod: 'bank_transfer',
     billingAddress: {
@@ -104,7 +155,7 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
 
   const adminMsg = {
     to: FROM_EMAIL,
-    from: FROM_EMAIL,
+    from: EMAIL_FROM,
     subject: `New Order Received - ${orderNumber}`,
     html: `
     <p>New Order Received - ${orderNumber}</p>
@@ -113,20 +164,20 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
     <p>Phone: ${data.phone}</p>
     <p>Address: ${data.address1}, ${data.address2}, ${data.city}, ${data.zip}, ${data.country}</p>
     <p>Order Notes: ${data.orderNotes}</p>
-    <p>Total: ${total}</p>
+    <p>Total: ${formattedTotal} (${currency})</p>
     <p>Items: ${cart.map((item) => item.name).join(', ')}</p>
     `,
   };
 
   const userMsg = {
     to: data.email,
-    from: FROM_EMAIL,
+    from: EMAIL_FROM,
     subject: `Your Order is On! Let’s Get This Party Started – ${orderNumber}`,
     html: orderConfirmBody({
       username: data.firstName,
       orderNumber,
       description: cart.map((item) => item.name).join(', '),
-      total: String(total),
+      total: formattedTotal,
       orderDate: new Date().toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -135,9 +186,6 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
     }),
   };
 
-  await sgMail.send(userMsg);
-  await sgMail.send(adminMsg);
-
   if (!response.ok) {
     console.error(`Order creation failed with status: ${response.status}`);
     const errorText = await response.text();
@@ -145,7 +193,23 @@ export const postOrder = async (data: CheckoutFormSchema, total: number, cart: C
     throw new Error(`Failed to create order: ${response.status} - ${errorText}`);
   }
 
-  return response.json();
+  // Send confirmation emails only after the order was successfully created.
+  // A failing email should never break a paid order, so each send is isolated.
+  try {
+    await sgMail.send(userMsg);
+  } catch (error) {
+    console.error('Failed to send order confirmation email to customer:', error);
+  }
+
+  try {
+    await sgMail.send(adminMsg);
+  } catch (error) {
+    console.error('Failed to send order notification email to admin:', error);
+  }
+
+  const order = await response.json();
+
+  return { ...order, authUser };
 };
 
 export const fetchUserByEmail = async (email: string) => {

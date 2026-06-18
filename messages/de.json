@@ -180,10 +180,10 @@
     "orderSummary": "Zusammenfassung Ihrer Bestellung",
     "paymentMethod": "Zahlungsmethode",
     "paymentNote": "*Nachdem Sie eine Bestellung aufgegeben haben, erhalten Sie eine E-Mail mit Zahlungsanweisungen, einschließlich unserer Bankverbindung und einer Zusammenfassung Ihres Einkaufs.",
-    "refundPolicy": "Ich habe die Erstattungsrichtlinien gelesen und stimme ihnen zu.",
+    "refundPolicy": "Ich habe die <link>Erstattungsrichtlinien</link> gelesen und stimme ihnen zu.",
     "safeAndSound": "Ihre Informationen, sicher und gesund!",
     "safeAndSoundDescription": "Wir verwenden deine Daten, um dir deine Bestellung zukommen zu lassen, dein Surferlebnis zu verbessern und für andere coole Dinge, die in unserer Datenschutzrichtlinie beschrieben sind. Keine Sorge, wir haben alles im Griff!",
-    "termsAndConditions": "Ich habe die Allgemeinen Geschäftsbedingungen der Website gelesen und stimme ihnen zu.",
+    "termsAndConditions": "Ich habe die <link>Allgemeinen Geschäftsbedingungen</link> der Website gelesen und stimme ihnen zu.",
     "total": "Insgesamt",
     "zip": "Postleitzahl"
   },
@@ -539,7 +539,7 @@
     "username": "Benutzername"
   },
   "requestForm": {
-    "agree": "Ich stimme den Nutzungsbedingungen und der Datenschutzrichtlinie zu.",
+    "agree": "Ich stimme den <terms>Nutzungsbedingungen</terms> und der <privacy>Datenschutzrichtlinie</privacy> zu.",
     "agreement": "Wir respektieren Ihre Privatsphäre. <br/>Ihre Informationen werden niemals weitergegeben.",
     "email": "E-Mail",
     "firstName": "Vorname",
@@ -759,6 +759,16 @@
     "contactDescription": "Bei Fragen können Sie uns unter folgender Adresse erreichen:",
     "contactTitle": "Kontaktinformationen"
   },
+  "authPopup": {
+    "title": "Für diese E-Mail existiert bereits ein Konto",
+    "description": "Bitte melden Sie sich an, um mit Ihrem bestehenden Konto fortzufahren.",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "login": "Anmelden",
+    "loggingIn": "Anmeldung läuft...",
+    "forgotPassword": "Passwort vergessen?",
+    "error": "Ungültige E-Mail oder ungültiges Passwort. Bitte versuchen Sie es erneut."
+  },
   "thanksPopup": {
     "close": "Weiter",
     "description": "Vielen Dank, dass Sie sich an Moddle 3D gewandt haben. Wir freuen uns darauf, Ihre Vision zum Leben zu erwecken und an etwas Außergewöhnlichem mitzuarbeiten. Unser Team wird sich in Kürze mit Ihnen in Verbindung setzen, um die perfekte Lösung für Ihr Projekt zu entwickeln. Lassen Sie",
@@ -766,7 +776,7 @@
   },
   "thankyouPage": {
     "button": "Startseite",
-    "description": "Danke, dass Sie sich für Moddle 3D entschieden haben - Ihre kreative Reise beginnt jetzt! Unser Team wird sich bald mit Ihnen in Verbindung setzen, um die Details zu bestätigen und die Dinge ins Rollen zu bringen. Wir können es kaum erwarten, Ihre Vision zum Leben zu erwecken!",
+    "description": "Wir bearbeiten Ihre Bestellung. Innerhalb weniger Minuten sollten Sie eine E-Mail mit Ihren Kontodaten und Bestelldetails erhalten. Nichts erhalten? Überprüfen Sie Ihren Spam-Ordner. Immer noch nicht gefunden? Kontaktieren Sie uns unter <mail>info@moddle3d.com</mail> und wir helfen Ihnen gerne weiter!",
     "title": "Hurra! Ihre Bestellung ist da!"
   },
   "trendsCta": {

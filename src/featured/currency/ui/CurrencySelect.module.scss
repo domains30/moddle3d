@@ -1,0 +1,75 @@
+.selectTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 8px 14px;
+  border-radius: 24px;
+  border: 1px solid #3e3f42;
+  background: #292a2d;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #323336;
+  }
+
+  > svg {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &[data-state='open'] > svg {
+    transform: rotate(180deg);
+  }
+}
+
+.value {
+  white-space: nowrap;
+}
+
+.selectContent {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  background-color: #292a2d;
+  border: 1px solid #292a2d;
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 900;
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  background: #292a2d;
+  padding: 14px 16px;
+  border-bottom: 1px solid #3e3f42;
+  transition: all 300ms ease-in-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #3e3f42;
+  }
+}
+
+.symbol {
+  display: inline-flex;
+  min-width: 24px;
+}
+
+.selected {
+  background-color: #3e3f42;
+}
