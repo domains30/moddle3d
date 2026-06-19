@@ -49,6 +49,35 @@ export const getProductCategories = async (locale: string): Promise<ProductCateg
   }
 };
 
+export const getProductById = async (id: string, locale?: string): Promise<Product | null> => {
+  try {
+    const sanitizedId = encodeURIComponent(String(id).trim());
+    const url = `${SERVER_URL}/api/products/${sanitizedId}${locale ? `?locale=${locale}` : ''}`;
+
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      console.error(`HTTP error! status: ${res.status} for product id: ${id}`);
+      return null;
+    }
+
+    const item = await res.json();
+
+    return {
+      id: item.id,
+      title: item.title,
+      excerpt: item.excerpt,
+      slug: item.slug,
+      category: item.category,
+      image: { url: item.image ? `${SERVER_URL}${item.image.url}` : '' },
+      price: item.price,
+    };
+  } catch (error) {
+    console.error(`Error fetching product ${id}:`, error);
+    return null;
+  }
+};
+
 export const getProducts = async (categoryId: string, locale: string): Promise<Product[]> => {
   try {
     const url = `${SERVER_URL}/api/products?populate=*&where[category.id][in]=${categoryId}&locale=${locale}`;

@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 
-import { formatPrice } from '@/shared/config/currencies';
+import { convertToBase, formatPrice } from '@/shared/config/currencies';
 import { useCountryCode } from '@/shared/lib/hooks/use-country';
 import { Button } from '@/shared/ui/kit/button/Button';
 import CountrySelect from '@/shared/ui/kit/country-select/CountrySelect';
@@ -16,6 +16,7 @@ import { Text } from '@/shared/ui/kit/text/Text';
 import { Title } from '@/shared/ui/kit/title/Title';
 
 import { postOrder } from '../../api/post-order';
+import { useCheckoutQueryParams } from '../../lib/use-checkout-query-params';
 import { type CheckoutFormSchema, checkoutFormSchema } from '../../model/schema';
 import { useCartStore } from '../../model/store';
 import styles from './Checkout.module.scss';
@@ -32,16 +33,24 @@ import { CurrencySelect } from '@/featured/currency/ui/CurrencySelect';
 };*/
 
 export const Checkout = () => {
-  const { cart, clearCart, total } = useCartStore();
+  const { cart, clearCart, total, coupon, utmSource } = useCartStore();
   const { currency } = useCurrencyStore();
   const { user, setUser } = useUserStore();
   const { open: openAuthPopup } = useAuthPopupStore();
   const t = useTranslations('checkout');
   const router = useRouter();
 
+  // Fill the cart / currency / coupon from a deep link such as
+  // /checkout/?add-to-cart=56|55&coupon=300eur&currency=EUR&utm_source=test
+  useCheckoutQueryParams();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const countryCode = useCountryCode();
+
+  // A coupon pins the whole order to a fixed final amount (in its own
+  // currency), so convert it back to the base currency the cart works in.
+  const effectiveTotal = coupon ? convertToBase(coupon.amount, coupon.currency) : total;
 
   const {
     register,
@@ -56,7 +65,10 @@ export const Checkout = () => {
   const placeOrder = async (data: CheckoutFormSchema) => {
     try {
       setIsLoading(true);
-      const result = await postOrder(data, total, cart, currency);
+      const result = await postOrder(data, effectiveTotal, cart, currency, {
+        utmSource,
+        coupon: coupon?.code,
+      });
 
       // A brand-new guest account is logged in automatically by postOrder.
       if (result?.authUser) {
@@ -251,9 +263,18 @@ export const Checkout = () => {
                     </div>
                   ))}
                 </div>
+                {coupon && (
+                  <div className={styles.coupon}>
+                    <p>
+                      {t('coupon', { fallback: 'Coupon' })}
+                      <span className={styles.code}>{coupon.code}</span>
+                    </p>
+                    <span>-{formatPrice(total - effectiveTotal, currency)}</span>
+                  </div>
+                )}
                 <div className={styles.total}>
                   <p>{t('total', { fallback: 'Total' })}</p>
-                  <p>{formatPrice(total, currency)}</p>
+                  <p>{formatPrice(effectiveTotal, currency)}</p>
                 </div>
                 <button type="submit" className={styles.submit}>
                   {isLoading

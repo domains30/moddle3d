@@ -365,6 +365,42 @@
             }
           }
         }
+        .coupon {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          width: 100%;
+          p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #717173;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            .code {
+              display: inline-flex;
+              align-items: center;
+              padding: 2px 10px;
+              border-radius: 8px;
+              background: #1b1c1e;
+              color: #fff;
+              font-size: 14px;
+              font-weight: 500;
+              text-transform: uppercase;
+            }
+          }
+          span {
+            color: #34c759;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            white-space: nowrap;
+          }
+        }
         .total {
           display: flex;
           justify-content: space-between;

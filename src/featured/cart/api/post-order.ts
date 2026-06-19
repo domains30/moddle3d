@@ -25,11 +25,17 @@ import { orderConfirmBody } from '@/featured/email-letters/order-confirm-body';
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
+type OrderMeta = {
+  utmSource?: string | null;
+  coupon?: string | null;
+};
+
 export const postOrder = async (
   data: CheckoutFormSchema,
   total: number,
   cart: CartItem[],
-  currency: CurrencyCode = BASE_CURRENCY
+  currency: CurrencyCode = BASE_CURRENCY,
+  meta: OrderMeta = {}
 ) => {
   console.log('Cart items received:', cart);
   console.log(
@@ -106,10 +112,19 @@ export const postOrder = async (
     })
   );
 
-  const orderNumber = `ORD_${Math.floor(Math.random() * 900000) + 100000}`;
+  const orderNumber = `MDL_${Math.floor(Math.random() * 900000) + 100000}`;
 
   const convertedTotal = convertFromBase(total, currency);
   const formattedTotal = formatPrice(total, currency);
+
+  // Coupon / UTM aren't dedicated CMS fields yet, so attach them to orderNotes.
+  const orderNotes = [
+    data.orderNotes || '',
+    meta.coupon ? `Coupon: ${meta.coupon}` : '',
+    meta.utmSource ? `UTM Source: ${meta.utmSource}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   const orderData = {
     orderNumber,
@@ -132,7 +147,7 @@ export const postOrder = async (
       zip: data.zip,
       country: data.country,
     },
-    orderNotes: data.orderNotes || '',
+    orderNotes,
   };
 
   if (!userId) {
@@ -166,6 +181,8 @@ export const postOrder = async (
     <p>Order Notes: ${data.orderNotes}</p>
     <p>Total: ${formattedTotal} (${currency})</p>
     <p>Items: ${cart.map((item) => item.name).join(', ')}</p>
+    ${meta.coupon ? `<p>Coupon: ${meta.coupon}</p>` : ''}
+    ${meta.utmSource ? `<p>UTM Source: ${meta.utmSource}</p>` : ''}
     `,
   };
 

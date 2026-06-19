@@ -34,6 +34,12 @@ export const convertFromBase = (amountInBase: number, code: CurrencyCode): numbe
   return Math.round(amountInBase * rate * 100) / 100;
 };
 
+/** Convert an amount expressed in the given currency back into the base currency (EUR). */
+export const convertToBase = (amount: number, code: CurrencyCode): number => {
+  const rate = CURRENCIES[code]?.rate ?? 1;
+  return Math.round((amount / rate) * 100) / 100;
+};
+
 /** Format an amount (stored in EUR) into a display string for the given currency. */
 export const formatPrice = (amountInBase: number, code: CurrencyCode): string => {
   const config = CURRENCIES[code] ?? CURRENCIES[BASE_CURRENCY];
