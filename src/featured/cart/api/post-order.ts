@@ -120,8 +120,8 @@ export const postOrder = async (
   // Coupon / UTM aren't dedicated CMS fields yet, so attach them to orderNotes.
   const orderNotes = [
     data.orderNotes || '',
-    meta.coupon ? `Coupon: ${meta.coupon}` : '',
-    meta.utmSource ? `UTM Source: ${meta.utmSource}` : '',
+    meta.coupon ? `Coupon: ${meta.coupon}\n` : '',
+    meta.utmSource ? `UTM Source: ${meta.utmSource}\n` : '',
   ]
     .filter(Boolean)
     .join('\n');
