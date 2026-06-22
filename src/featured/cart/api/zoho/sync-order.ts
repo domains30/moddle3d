@@ -93,6 +93,7 @@ export const syncOrderToZoho = async (params: SyncParams): Promise<string | null
     Subject: `${orderNumber} - ${data.firstName} ${data.lastName}`,
     Contact_Name: { id: contactId },
     Status: 'Created',
+    Payment_Method_new: 'Wire Transfer',
     Email: data.email,
     Date_and_Time_of_Order: zohoDate(new Date()),
     Currency: currency,
