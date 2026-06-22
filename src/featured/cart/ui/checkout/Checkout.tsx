@@ -34,7 +34,7 @@ import { CurrencySelect } from '@/featured/currency/ui/CurrencySelect';
 };*/
 
 export const Checkout = () => {
-  const { cart, clearCart, total, coupon, utmSource } = useCartStore();
+  const { cart, clearCart, coupon, utmSource } = useCartStore();
   const { currency } = useCurrencyStore();
   const { user, setUser } = useUserStore();
   const { open: openAuthPopup } = useAuthPopupStore();
@@ -56,9 +56,14 @@ export const Checkout = () => {
   // Detected on the client only (see hook) to avoid an SSR hydration mismatch.
   const countryCode = useClientCountryCode();
 
+  // Always derive the cart total from the items themselves — the store keeps a
+  // separate running `total` that can drift out of sync, so we never trust it
+  // for display or ordering.
+  const cartTotal = cart.reduce((sum, item) => sum + item.subtotal, 0);
+
   // A coupon pins the whole order to a fixed final amount (in its own
   // currency), so convert it back to the base currency the cart works in.
-  const effectiveTotal = coupon ? convertToBase(coupon.amount, coupon.currency) : total;
+  const effectiveTotal = coupon ? convertToBase(coupon.amount, coupon.currency) : cartTotal;
 
   const {
     register,
@@ -325,7 +330,7 @@ export const Checkout = () => {
                       {t('coupon', { fallback: 'Coupon' })}
                       <span className={styles.code}>{coupon.code}</span>
                     </p>
-                    <span>-{formatPrice(total - effectiveTotal, currency)}</span>
+                    <span>-{formatPrice(cartTotal - effectiveTotal, currency)}</span>
                   </div>
                 )}
                 <div className={styles.total}>

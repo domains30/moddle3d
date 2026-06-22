@@ -100,6 +100,12 @@ export const useCartStore = create<CartStore>((set, get) => {
         'total',
         JSON.stringify(get().total - (cart.find((item) => item.id === id)?.subtotal || 0))
       );
+      // A coupon only makes sense with items in the cart — drop it (and the UTM)
+      // once the cart is emptied.
+      if (newCart.length === 0) {
+        get().setCoupon(null);
+        get().setUtmSource(null);
+      }
     },
     clearCart: () => {
       set({ cart: [], coupon: null, utmSource: null });
