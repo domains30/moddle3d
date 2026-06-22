@@ -72,7 +72,7 @@ export const ProductCard = ({ id, title, image, excerpt, price, category, slug }
         {isInWishlist ? <ActiveFavoriteIcon /> : <FavoriteIcon />}
       </button>
       <div className={styles.top}>
-        <Image src={image.url} alt={title} width={230} height={230} quality={100} />
+        <Image src={image.url} alt={title} width={230} height={230} quality={50} />
         <div>
           <Title title={title} tag="h3" />
           <Text text={excerpt} />
