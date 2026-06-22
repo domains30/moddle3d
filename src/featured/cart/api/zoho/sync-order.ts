@@ -1,5 +1,5 @@
 import { convertFromBase, type CurrencyCode } from '@/shared/config/currencies';
-import { ZOHO_ENABLED } from '@/shared/config/env';
+import { SITE_URL, ZOHO_ENABLED } from '@/shared/config/env';
 
 import type { CheckoutFormSchema } from '../../model/schema';
 import type { CartItem } from '../../model/types';
@@ -94,6 +94,7 @@ export const syncOrderToZoho = async (params: SyncParams): Promise<string | null
     Contact_Name: { id: contactId },
     Status: 'Created',
     Payment_Method_new: 'Wire Transfer',
+    Sale_Site: `${SITE_URL.replace(/\/$/, '')}/`,
     Email: data.email,
     Date_and_Time_of_Order: zohoDate(new Date()),
     Currency: currency,
