@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 
+import { isBlockedCountry } from '@/shared/config/blocked-countries';
 import { convertToBase, formatPrice } from '@/shared/config/currencies';
 import { filteredCountries } from '@/shared/lib/helpers/excludedCountries';
 import { useClientCountryCode } from '@/shared/lib/hooks/use-client-country';
@@ -46,6 +47,7 @@ export const Checkout = () => {
   useCheckoutQueryParams();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [orderError, setOrderError] = useState<string | null>(null);
 
   // The cart store reads localStorage at init, so the server renders an empty
   // cart while the client has items. Gate the cart-dependent UI on mount so the
@@ -141,6 +143,17 @@ export const Checkout = () => {
   };
 
   const onSubmit = async (data: CheckoutFormSchema) => {
+    // Reject orders from blocked countries with a neutral error.
+    if (isBlockedCountry(data.country)) {
+      setOrderError(
+        t('orderUnavailable', {
+          fallback: "Sorry, we're unable to process your order at this time.",
+        })
+      );
+      return;
+    }
+    setOrderError(null);
+
     // If the shopper isn't logged in but the email already belongs to an
     // account, ask them to log in before we place the order.
     if (!user) {
@@ -346,6 +359,8 @@ export const Checkout = () => {
                         fallback: 'Submit',
                       })}
                 </button>
+
+                {orderError && <p className={styles.orderError}>{orderError}</p>}
 
                 <div className={styles.agreement}>
                   <div

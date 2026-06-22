@@ -261,6 +261,15 @@
           width: 100%;
         }
 
+        .orderError {
+          width: 100%;
+          color: #ff5c5c;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: normal;
+          text-align: center;
+        }
+
         .inputWrapper {
           display: flex;
           flex-direction: column;

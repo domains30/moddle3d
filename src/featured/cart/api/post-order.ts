@@ -2,6 +2,7 @@
 
 import sgMail from '@sendgrid/mail';
 
+import { isBlockedCountry } from '@/shared/config/blocked-countries';
 import {
   BASE_CURRENCY,
   convertFromBase,
@@ -43,6 +44,12 @@ export const postOrder = async (
     'Cart item IDs:',
     cart.map((item) => ({ id: item.id, name: item.name }))
   );
+
+  // Hard block: never create an order for a restricted country, even if the
+  // client-side check was bypassed.
+  if (isBlockedCountry(data.country)) {
+    throw new Error('Orders are not available for the selected country.');
+  }
 
   let userId = null;
   let authUser = null;

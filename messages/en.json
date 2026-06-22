@@ -292,6 +292,7 @@
     "orderSummary": "Your Order Summary",
     "total": "Total",
     "coupon": "Coupon",
+    "orderUnavailable": "Sorry, we're unable to process your order at this time.",
     "loading": "Loading...",
     "checkout": "Submit",
     "termsAndConditions": "I have read and agree to the website’s <link>Terms and Conditions</link>.",

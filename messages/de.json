@@ -169,6 +169,7 @@
     "city": "Stadt",
     "country": "Land",
     "coupon": "Gutschein",
+    "orderUnavailable": "Leider können wir Ihre Bestellung derzeit nicht bearbeiten.",
     "email": "E-Mail",
     "emptyCart": "Huch! Ihr Warenkorb ist ein wenig leer...",
     "emptyCartDescription": "Keine Sorge, wir haben jede Menge toller 3D-Modelle für dich parat! Erkunde unsere Kollektion und fülle deinen Warenkorb mit den coolsten Designs, um deine Ideen zum Leben zu erwecken!",
