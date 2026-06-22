@@ -72,17 +72,41 @@ export const Checkout = () => {
     resolver: zodResolver(checkoutFormSchema),
   });
 
+  // Pre-fill billing details from the signed-in user's saved data. Only fills
+  // empty fields so we never clobber something the shopper is editing (e.g.
+  // after logging in mid-checkout via the auth popup).
+  useEffect(() => {
+    if (!user) return;
+
+    const prefill: [keyof CheckoutFormSchema, string | undefined][] = [
+      ['firstName', user.firstName],
+      ['lastName', user.lastName],
+      ['address1', user.address1],
+      ['address2', user.address2],
+      ['city', user.city],
+      ['country', user.country],
+      ['zip', user.zip],
+      ['phone', user.phone],
+      ['email', user.email],
+    ];
+
+    prefill.forEach(([name, value]) => {
+      if (value && !getValues(name)) setValue(name, value);
+    });
+  }, [user, getValues, setValue]);
+
   // Pre-fill the country once the IP lookup resolves. Excluded countries
   // (e.g. UA) aren't in the select options, so fall back to US — same behaviour
   // as the phone field — to always show a sensible default. Don't overwrite a
-  // value the shopper already picked.
+  // value the shopper already picked, and let a signed-in user's saved country
+  // take precedence over IP detection.
   useEffect(() => {
-    if (!countryCode || getValues('country')) return;
+    if (user || !countryCode || getValues('country')) return;
 
     const detected = countryCode.toUpperCase();
     const isAllowed = filteredCountries.some((c) => c.value === detected);
     setValue('country', isAllowed ? detected : 'US');
-  }, [countryCode, getValues, setValue]);
+  }, [user, countryCode, getValues, setValue]);
 
   const placeOrder = async (data: CheckoutFormSchema) => {
     try {
