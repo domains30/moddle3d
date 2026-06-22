@@ -13,6 +13,8 @@ import st from './OrderCard.module.scss';
 export const OrderCard = ({ orderDate, invoiceUrl, items, orderId, price, orderStatus }: Order) => {
   const date = new Date(orderDate);
 
+  const isCompleted = orderStatus === 'completed';
+
   const t = useTranslations('orderHistory');
 
   return (
@@ -24,7 +26,23 @@ export const OrderCard = ({ orderDate, invoiceUrl, items, orderId, price, orderS
       <span className={st.divider} />
       <div className={st.section}>
         <p className={stItems.heading}>{t('itemPurchased', { fallback: 'Item Purchased' })}</p>
-        <p className={stItems.text}>{items.join(', ')}</p>
+        <ul className={stItems.items}>
+          {items.map((item, index) => (
+            <li key={`${item.title}-${index}`} className={stItems.item}>
+              <span className={stItems.text}>{item.title}</span>
+              {isCompleted && item.fileUrl && (
+                <button
+                  type="button"
+                  className={stItems.itemDownload}
+                  title={t('download', { fallback: 'Download' })}
+                  onClick={() => downloadFile(item.fileUrl!, item.fileName ?? undefined)}
+                >
+                  <DownloadIcon />
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
       <span className={st.divider} />
       <div className={st.section}>

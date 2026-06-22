@@ -1,7 +1,7 @@
-export const downloadFile = (url: string) => {
+export const downloadFile = (url: string, fileName?: string) => {
   const link = document.createElement('a');
   link.href = url;
-  link.download = `invoice-${url.split('/').pop()}`;
+  link.download = fileName ?? `invoice-${url.split('/').pop()}`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

@@ -6,7 +6,7 @@ import { DownloadIcon } from '@/shared/ui/icons/download';
 
 import { OrderStatus } from '../ui/OrderStatus';
 import st from './columns.module.scss';
-import type { Order } from './types';
+import type { Order, OrderItem } from './types';
 
 export const getOrdersColumns = (t: ReturnType<typeof useTranslations>): ColumnDef<Order>[] => [
   {
@@ -16,10 +16,33 @@ export const getOrdersColumns = (t: ReturnType<typeof useTranslations>): ColumnD
   },
   {
     accessorKey: 'items',
+    meta: { width: '28%' },
     header: () => (
       <p className={st.heading}>{t('itemPurchased', { fallback: 'Item Purchased' })}</p>
     ),
-    cell: (info) => <p className={st.text}>{info.getValue<string[]>().join(', ')}</p>,
+    cell: (info) => {
+      const isCompleted = info.row.original.orderStatus === 'completed';
+
+      return (
+        <ul className={st.items}>
+          {info.getValue<OrderItem[]>().map((item, index) => (
+            <li key={`${item.title}-${index}`} className={st.item}>
+              <span className={st.text}>{item.title}</span>
+              {isCompleted && item.fileUrl && (
+                <button
+                  type="button"
+                  className={st.itemDownload}
+                  title={t('download', { fallback: 'Download' })}
+                  onClick={() => downloadFile(item.fileUrl!, item.fileName ?? undefined)}
+                >
+                  <DownloadIcon />
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      );
+    },
   },
   {
     accessorKey: 'orderDate',
@@ -31,6 +54,7 @@ export const getOrdersColumns = (t: ReturnType<typeof useTranslations>): ColumnD
   },
   {
     accessorKey: 'price',
+    meta: { width: '90px' },
     header: () => <p className={st.heading}>{t('total', { fallback: 'Total' })}</p>,
     cell: (info) => <p className={st.text}>€{info.getValue<number>()}</p>,
   },

@@ -27,14 +27,22 @@ export const getUserOrders = async (): Promise<Order[]> => {
     ? data.docs.map(
         (item: {
           orderNumber: string;
-          items: { product: { title: string } }[];
+          items: {
+            product: { title: string };
+            file_url?: string | null;
+            file_name?: string | null;
+          }[];
           total: number;
           createdAt: string;
           status: string;
           invoice: { url: string };
         }) => ({
           orderId: item.orderNumber,
-          items: item.items.map((bot) => bot.product.title),
+          items: item.items.map((bot) => ({
+            title: bot.product.title,
+            fileUrl: bot.file_url ?? null,
+            fileName: bot.file_name ?? null,
+          })),
           price: item.total,
           orderDate: item.createdAt,
           orderStatus: item.status,

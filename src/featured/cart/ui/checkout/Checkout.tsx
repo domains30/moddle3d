@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -8,7 +8,8 @@ import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 
 import { convertToBase, formatPrice } from '@/shared/config/currencies';
-import { useCountryCode } from '@/shared/lib/hooks/use-country';
+import { filteredCountries } from '@/shared/lib/helpers/excludedCountries';
+import { useClientCountryCode } from '@/shared/lib/hooks/use-client-country';
 import { Button } from '@/shared/ui/kit/button/Button';
 import CountrySelect from '@/shared/ui/kit/country-select/CountrySelect';
 import { PhoneField } from '@/shared/ui/kit/phone-field';
@@ -46,7 +47,14 @@ export const Checkout = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const countryCode = useCountryCode();
+  // The cart store reads localStorage at init, so the server renders an empty
+  // cart while the client has items. Gate the cart-dependent UI on mount so the
+  // server and first client render agree (avoids a hydration mismatch).
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  // Detected on the client only (see hook) to avoid an SSR hydration mismatch.
+  const countryCode = useClientCountryCode();
 
   // A coupon pins the whole order to a fixed final amount (in its own
   // currency), so convert it back to the base currency the cart works in.
@@ -57,10 +65,24 @@ export const Checkout = () => {
     handleSubmit,
     reset,
     control,
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm<CheckoutFormSchema>({
     resolver: zodResolver(checkoutFormSchema),
   });
+
+  // Pre-fill the country once the IP lookup resolves. Excluded countries
+  // (e.g. UA) aren't in the select options, so fall back to US — same behaviour
+  // as the phone field — to always show a sensible default. Don't overwrite a
+  // value the shopper already picked.
+  useEffect(() => {
+    if (!countryCode || getValues('country')) return;
+
+    const detected = countryCode.toUpperCase();
+    const isAllowed = filteredCountries.some((c) => c.value === detected);
+    setValue('country', isAllowed ? detected : 'US');
+  }, [countryCode, getValues, setValue]);
 
   const placeOrder = async (data: CheckoutFormSchema) => {
     try {
@@ -110,7 +132,7 @@ export const Checkout = () => {
     <section className={styles.checkout}>
       <div className={styles.cart__bg}></div>
       <div className={'_container'}>
-        {cart.length > 0 ? (
+        {!mounted ? null : cart.length > 0 ? (
           <form className={styles.checkout__content} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.col1}>
               <div className={styles.form}>
@@ -200,7 +222,17 @@ export const Checkout = () => {
                   <Controller
                     name="phone"
                     control={control}
-                    render={({ field }) => <PhoneField {...field} country={countryCode} />}
+                    render={({ field }) =>
+                      // `defaultCountry` is only read on mount, and the input
+                      // writes its dial code into the value on mount — so we must
+                      // mount it once, after the IP lookup resolves, otherwise it
+                      // locks onto the US fallback. Show a placeholder meanwhile.
+                      countryCode ? (
+                        <PhoneField {...field} country={countryCode} />
+                      ) : (
+                        <input disabled placeholder={t('phone', { fallback: 'Phone' })} />
+                      )
+                    }
                   />
                 </div>
 

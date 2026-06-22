@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { useTranslations } from 'next-intl';
 
@@ -19,7 +20,7 @@ import { useWishlistStore } from '@/featured/wishlist/model/wishlist.store';
 
 export const ProductCard = ({ id, title, image, excerpt, price, category, slug }: Product) => {
   const { addToCart, setTotal, total, setIsCartFilled } = useCartStore();
-
+  const router = useRouter();
   const { wishlist, setWishlist } = useWishlistStore();
 
   const t = useTranslations('wishlist');
@@ -37,6 +38,7 @@ export const ProductCard = ({ id, title, image, excerpt, price, category, slug }
     });
     setTotal(total + price);
     setIsCartFilled(true);
+    router.push('/checkout');
   };
 
   const addToWishlistHandle = (item: Product) => {

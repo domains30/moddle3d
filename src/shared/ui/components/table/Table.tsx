@@ -28,7 +28,13 @@ export const Table = <TData,>({
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id} className={st.th}>
+                <th
+                  key={header.id}
+                  className={st.th}
+                  style={{
+                    width: (header.column.columnDef.meta as { width?: string } | undefined)?.width,
+                  }}
+                >
                   {flexRender(header.column.columnDef.header, header.getContext())}
                 </th>
               ))}

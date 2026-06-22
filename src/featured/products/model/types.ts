@@ -19,9 +19,15 @@ export type Product = {
   price: number;
 };
 
+export type OrderItem = {
+  title: string;
+  fileUrl: string | null;
+  fileName: string | null;
+};
+
 export type Order = {
   orderId: string;
-  items: string[];
+  items: OrderItem[];
   price: string;
   orderDate: string;
   orderStatus: string;
