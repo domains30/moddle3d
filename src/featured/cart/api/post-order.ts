@@ -18,6 +18,7 @@ import {
 
 import type { CheckoutFormSchema } from '../model/schema';
 import type { CartItem } from '../model/types';
+import { syncOrderToZoho } from './zoho/sync-order';
 
 import { login } from '@/core/user/api/login';
 import { credentialsBody } from '@/featured/email-letters/credentials-body';
@@ -222,6 +223,22 @@ export const postOrder = async (
     await sgMail.send(adminMsg);
   } catch (error) {
     console.error('Failed to send order notification email to admin:', error);
+  }
+
+  // Push the order into Zoho CRM. Isolated so a Zoho failure never breaks a
+  // successfully placed order.
+  try {
+    await syncOrderToZoho({
+      data,
+      cart,
+      total,
+      currency,
+      orderNumber,
+      utmSource: meta.utmSource,
+      coupon: meta.coupon,
+    });
+  } catch (error) {
+    console.error('Failed to sync order to Zoho CRM:', error);
   }
 
   const order = await response.json();
