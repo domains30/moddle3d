@@ -24,6 +24,38 @@
         flex-direction: column;
       }
     }
+    &:last-child {
+      .col2 {
+        .top {
+          .labels {
+            span {
+              &:last-child {
+                background: #3c2d1c;
+                color: #ff9811;
+              }
+            }
+          }
+          .includes {
+            ul {
+              li {
+               svg{
+                path{
+                  &:first-child{
+                    fill: #ff9811;
+                  }
+                }
+               }
+              }
+            }
+          }
+        }
+        .bottom{
+          button{
+            background: #ff9811;
+          }
+        }
+      }
+    }
     @include tablet {
       flex-direction: column;
       gap: 16px;
@@ -31,7 +63,8 @@
     .col1 {
       width: 65%;
       border-radius: 16px;
-      background: linear-gradient(180deg, rgba(25, 26, 30, 0) 0%, #191a1e 100%), #191a1e;
+      background: linear-gradient(180deg, rgba(25, 26, 30, 0) 0%, #191a1e 100%),
+        #191a1e;
       padding: 24px;
       display: flex;
       align-items: center;
