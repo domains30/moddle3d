@@ -160,7 +160,6 @@ export const EditUserForm = () => {
         <TextField
           label={t('zip', { fallback: 'Zip Code' })}
           hint={errors.zip?.message}
-          type="number"
           disabled={!isEditing}
           {...register('zip')}
         />
