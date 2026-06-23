@@ -74,6 +74,7 @@ export const Checkout = () => {
     control,
     setValue,
     getValues,
+    watch,
     formState: { errors },
   } = useForm<CheckoutFormSchema>({
     resolver: zodResolver(checkoutFormSchema),
@@ -325,7 +326,7 @@ export const Checkout = () => {
               <div className={styles.inner}>
                 <div className={styles.summaryHeader}>
                   <h4>{t('orderSummary', { fallback: 'Your Order Summary' })}</h4>
-                  <CurrencySelect />
+                  <CurrencySelect countryCode={watch('country')} />
                 </div>
                 <div className={styles.items}>
                   {cart.map((item) => (

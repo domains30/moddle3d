@@ -25,6 +25,43 @@ export const CURRENCIES: Record<CurrencyCode, CurrencyConfig> = {
 
 export const CURRENCY_LIST: CurrencyConfig[] = Object.values(CURRENCIES);
 
+/** Currencies always shown in the "Popular" group of the selector. */
+export const POPULAR_CURRENCIES: CurrencyCode[] = ['EUR', 'USD', 'GBP'];
+
+/**
+ * Maps an ISO 3166-1 alpha-2 country code to the currency used there. Lets the
+ * selector promote a currency into the "Popular" group when the shopper picks a
+ * matching country (e.g. choosing Canada surfaces CAD). Currencies that are
+ * always popular don't need an entry — only the ones worth promoting do. When a
+ * new currency is added (CHF, INR, …), map its countries here.
+ */
+export const COUNTRY_CURRENCY: Record<string, CurrencyCode> = {
+  CA: 'CAD',
+  AU: 'AUD',
+};
+
+/** The currency associated with a country, if we have a mapping for it. */
+export const currencyForCountry = (countryCode?: string): CurrencyCode | undefined => {
+  if (!countryCode) return undefined;
+  return COUNTRY_CURRENCY[countryCode.toUpperCase()];
+};
+
+/**
+ * Split the currency list into "popular" and "others", promoting the selected
+ * country's currency into the popular group when we have a mapping for it.
+ */
+export const getCurrencyGroups = (
+  countryCode?: string
+): { popular: CurrencyConfig[]; others: CurrencyConfig[] } => {
+  const popularCodes = new Set<CurrencyCode>(POPULAR_CURRENCIES);
+  const promoted = currencyForCountry(countryCode);
+  if (promoted) popularCodes.add(promoted);
+
+  const popular = CURRENCY_LIST.filter((c) => popularCodes.has(c.code));
+  const others = CURRENCY_LIST.filter((c) => !popularCodes.has(c.code));
+  return { popular, others };
+};
+
 export const isCurrencyCode = (value: string): value is CurrencyCode =>
   Object.prototype.hasOwnProperty.call(CURRENCIES, value);
 

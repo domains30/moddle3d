@@ -1,4 +1,8 @@
 {
+  "currency": {
+    "popular": "Popularne",
+    "others": "Pozostałe"
+  },
   "accountContainer": { "title": "Ustawienia konta" },
   "careerForm": {
     "coverLetter": "List motywacyjny*",

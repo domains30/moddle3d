@@ -1,4 +1,8 @@
 {
+  "currency": {
+    "popular": "Popolari",
+    "others": "Altre"
+  },
   "accountContainer": { "title": "Impostazioni dell'account" },
   "careerForm": {
     "coverLetter": "Lettera di presentazione*",

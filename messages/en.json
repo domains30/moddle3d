@@ -1,4 +1,8 @@
 {
+  "currency": {
+    "popular": "Popular",
+    "others": "Others"
+  },
   "homeHero": {
     "title1": "Welcome to the 3D <br/>Wonderland",
     "description": "Where pixels meet possibilities, from 3D models to mind-blowing <br/>animations and sleek UI/UX designs, we’re here to bring your <br/>ideas to life. The dream begins here.",
