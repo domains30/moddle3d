@@ -30,6 +30,12 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 type OrderMeta = {
   utmSource?: string | null;
   coupon?: string | null;
+  /**
+   * Skip the browser auto-login after creating a new customer. Set for
+   * server-to-server orders (e.g. the external-order endpoint) where there is
+   * no browser session to attach the auth cookies to.
+   */
+  skipAutoLogin?: boolean;
 };
 
 export const postOrder = async (
@@ -66,14 +72,18 @@ export const postOrder = async (
 
     userId = newUser.doc.id;
 
-    // Automatically sign the new customer in so they stay logged in after ordering.
-    try {
-      const loginResult = await login({ email: data.email, password });
-      if (loginResult.success) {
-        authUser = loginResult.user;
+    // Automatically sign the new customer in so they stay logged in after
+    // ordering. Skipped for server-to-server orders (no browser to receive the
+    // cookies — see meta.skipAutoLogin).
+    if (!meta.skipAutoLogin) {
+      try {
+        const loginResult = await login({ email: data.email, password });
+        if (loginResult.success) {
+          authUser = loginResult.user;
+        }
+      } catch (error) {
+        console.error('Auto-login after order failed:', error);
       }
-    } catch (error) {
-      console.error('Auto-login after order failed:', error);
     }
 
     // Send the new customer their login credentials.

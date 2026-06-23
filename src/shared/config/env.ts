@@ -7,6 +7,9 @@ export const FROM_NAME = process.env.FROM_NAME ?? 'Moddle 3D';
 export const EMAIL_FROM = { email: FROM_EMAIL, name: FROM_NAME };
 export const SITE_URL = process.env.SITE_URL ?? 'https://moddle3d.com';
 
+/** Shared secret required (in the `x-api-key` header) by the external-order endpoint. */
+export const EXTERNAL_ORDER_API_KEY = process.env.EXTERNAL_ORDER_API_KEY ?? '';
+
 // Zoho CRM (orders sync). US datacenter — see .env.local.
 export const ZOHO_CLIENT_ID = process.env.ZOHO_CLIENT_ID ?? '';
 export const ZOHO_CLIENT_SECRET = process.env.ZOHO_CLIENT_SECRET ?? '';
