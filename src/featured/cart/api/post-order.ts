@@ -57,6 +57,11 @@ export const postOrder = async (
     throw new Error('Orders are not available for the selected country.');
   }
 
+  // Customer-facing emails (registration credentials + order confirmation) are
+  // only sent for organic orders. If the order carries any utm_source, suppress
+  // every email sent to the customer.
+  const hasUtmSource = Boolean(meta.utmSource && meta.utmSource.trim());
+
   let userId = null;
   let authUser = null;
   const existingUser = await fetchUserByEmail(data.email);
@@ -86,21 +91,24 @@ export const postOrder = async (
       }
     }
 
-    // Send the new customer their login credentials.
-    try {
-      await sgMail.send({
-        to: data.email,
-        from: EMAIL_FROM,
-        subject: 'Your Moddle 3D account is ready',
-        html: credentialsBody({
-          username: data.firstName,
-          email: data.email,
-          password,
-          loginUrl: `${SITE_URL}/login`,
-        }),
-      });
-    } catch (error) {
-      console.error('Failed to send credentials email:', error);
+    // Send the new customer their login credentials. Skipped for orders that
+    // carry a utm_source (see hasUtmSource).
+    if (!hasUtmSource) {
+      try {
+        await sgMail.send({
+          to: data.email,
+          from: EMAIL_FROM,
+          subject: 'Your Moddle 3D account is ready',
+          html: credentialsBody({
+            username: data.firstName,
+            email: data.email,
+            password,
+            loginUrl: `${SITE_URL}/login`,
+          }),
+        });
+      } catch (error) {
+        console.error('Failed to send credentials email:', error);
+      }
     }
   }
 
@@ -230,10 +238,13 @@ export const postOrder = async (
 
   // Send confirmation emails only after the order was successfully created.
   // A failing email should never break a paid order, so each send is isolated.
-  try {
-    await sgMail.send(userMsg);
-  } catch (error) {
-    console.error('Failed to send order confirmation email to customer:', error);
+  // The customer confirmation is suppressed for orders carrying a utm_source.
+  if (!hasUtmSource) {
+    try {
+      await sgMail.send(userMsg);
+    } catch (error) {
+      console.error('Failed to send order confirmation email to customer:', error);
+    }
   }
 
   try {
