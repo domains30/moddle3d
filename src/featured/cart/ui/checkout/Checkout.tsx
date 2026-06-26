@@ -24,6 +24,7 @@ import { useCartStore } from '../../model/store';
 import styles from './Checkout.module.scss';
 
 import { checkEmailExists } from '@/core/user/api/check-email';
+import { validateEmail } from '@/core/user/api/validate-email';
 import { useUserStore } from '@/core/user/model/user.store';
 import { useAuthPopupStore } from '@/featured/auth-popup/store/store';
 import { useCurrencyStore } from '@/featured/currency/model/store';
@@ -73,6 +74,7 @@ export const Checkout = () => {
     reset,
     control,
     setValue,
+    setError,
     getValues,
     watch,
     formState: { errors },
@@ -154,6 +156,22 @@ export const Checkout = () => {
       return;
     }
     setOrderError(null);
+
+    // Verify the email is deliverable via Hunter before creating an order.
+    // Whitelisted addresses and Hunter outages pass through (see validateEmail).
+    setIsLoading(true);
+    const emailCheck = await validateEmail(data.email);
+    if (!emailCheck.valid) {
+      setIsLoading(false);
+      setError('email', {
+        type: 'manual',
+        message: t('invalidEmailDeliverability', {
+          fallback: 'Please enter a valid, deliverable email address.',
+        }),
+      });
+      return;
+    }
+    setIsLoading(false);
 
     // If the shopper isn't logged in but the email already belongs to an
     // account, ask them to log in before we place the order.
