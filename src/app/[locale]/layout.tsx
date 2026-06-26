@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
@@ -44,8 +45,26 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <GoogleAnalytics gaId="G-0V7LP0EY91" />
       <body className={inter.variable}>
+        {/* Zoho PageSense (A/B testing + heatmaps). Loaded as early as possible
+            to minimize variant flicker (FOOC) on A/B tests. */}
+        <Script
+          id="zoho-pagesense"
+          strategy="beforeInteractive"
+          src="https://cdn.pagesense.io/js/tradeprof/2e00290ee5cf46eca518371b0d4f50d2.js"
+        />
+        {/* Zoho SalesIQ chat. The inline init must define $zoho before the widget
+            script runs (afterInteractive runs before the lazyOnload widget), and
+            the widget itself is deferred to idle to keep it off the critical path. */}
+        <Script id="zsiqscript-init" strategy="afterInteractive">
+          {`window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
+        </Script>
+        <Script
+          id="zsiqscript"
+          strategy="lazyOnload"
+          src="https://salesiq.zohopublic.com/widget?wc=siqc105027e833add45ba01b86ce425fc9ae22bc4a14ab250d8fb993b721bb17f61"
+        />
+        <GoogleAnalytics gaId="G-0V7LP0EY91" />
         <NextIntlClientProvider>
           <WishlistProvider>
             <Header />
