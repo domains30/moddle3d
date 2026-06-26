@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useTranslations } from 'next-intl';
 
-import { Facebook, Linkedin, X } from '@/shared/ui/icons';
+import { Facebook } from '@/shared/ui/icons';
 
 import styles from './Footer.module.scss';
 
@@ -178,22 +178,12 @@ export const Footer = () => {
             })}
           </p>
           <div className={styles.socials}>
-            <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
-              <X />
-            </Link>
             <Link
               href="https://www.facebook.com/moddle3d/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Facebook />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/moddle3d"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin />
             </Link>
           </div>
         </div>

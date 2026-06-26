@@ -9,7 +9,7 @@ import { useLenis } from 'lenis/react';
 import { useTranslations } from 'next-intl';
 
 import { cookies } from '@/shared/lib/utils/cookie';
-import { BurgerMenu, Cart, Facebook, Linkedin, X } from '@/shared/ui/icons';
+import { BurgerMenu, Cart, Facebook } from '@/shared/ui/icons';
 
 import { LangSwitcher } from '../lang-switcher/LangSwitcher';
 import styles from './Header.module.scss';
@@ -66,22 +66,12 @@ export const Header = () => {
             <div className={styles.header__top}>
               <div className={styles.header__top_row}>
                 <div className={styles.socials}>
-                  <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
-                    <X />
-                  </Link>
                   <Link
                     href="https://www.facebook.com/moddle3d/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Facebook />
-                  </Link>
-                  <Link
-                    href="https://www.linkedin.com/company/moddle3d"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin />
                   </Link>
                 </div>
                 <div className={styles.contacts}>
@@ -186,22 +176,12 @@ export const Header = () => {
         )}
         <div className={styles.bottom}>
           <div className={styles.socials}>
-            <Link href="https://x.com/Moddle3D" target="_blank" rel="noopener noreferrer">
-              <X />
-            </Link>
             <Link
               href="https://www.facebook.com/moddle3d/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Facebook />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/company/moddle3d"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin />
             </Link>
           </div>
           <div className={styles.contacts}>
