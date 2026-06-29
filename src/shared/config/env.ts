@@ -22,6 +22,25 @@ export const HUNTER_ENABLED = Boolean(HUNTER_API_KEY);
  */
 export const EMAIL_VALIDATION_WHITELIST = process.env.EMAIL_VALIDATION_WHITELIST ?? '';
 
+// Google Sheets checkout blocker (blocked IPs / emails).
+/** Spreadsheet holding the "Blocked IPs" and "Blocked Emails" tabs. */
+export const GOOGLE_BLOCK_SHEET_ID =
+  process.env.GOOGLE_BLOCK_SHEET_ID ?? '10pz2UWFulCkumQayO23NRtvB-0vaN_KCMdSEgNnZ_qQ';
+/**
+ * Whether the Google Sheets blocker runs. Defaults on; set
+ * `GOOGLE_BLOCK_ENABLED=false` to disable (e.g. local dev) so checkout never
+ * waits on the Sheets API.
+ */
+export const GOOGLE_BLOCK_ENABLED = (process.env.GOOGLE_BLOCK_ENABLED ?? 'true') !== 'false';
+
+// FingerprintJS Pro device tracking (checkout fraud signal). Public values —
+// inlined into the client bundle, so they must be NEXT_PUBLIC_*.
+/** FingerprintJS Pro public API key (the `/v3/<key>` CDN agent endpoint). */
+export const FINGERPRINT_PUBLIC_KEY =
+  process.env.NEXT_PUBLIC_FINGERPRINT_PUBLIC_KEY ?? 'r148KAXwE49ho2FcfsRJ';
+/** Agent region: `eu` | `us` | `ap`. Must match the workspace region. */
+export const FINGERPRINT_REGION = process.env.NEXT_PUBLIC_FINGERPRINT_REGION ?? 'eu';
+
 // Zoho CRM (orders sync). US datacenter — see .env.local.
 export const ZOHO_CLIENT_ID = process.env.ZOHO_CLIENT_ID ?? '';
 export const ZOHO_CLIENT_SECRET = process.env.ZOHO_CLIENT_SECRET ?? '';

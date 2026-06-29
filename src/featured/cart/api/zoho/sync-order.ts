@@ -19,6 +19,8 @@ type SyncParams = {
   orderNumber: string;
   utmSource?: string | null;
   coupon?: string | null;
+  /** FingerprintJS Pro device visitor ID (fraud signal). */
+  deviceFingerprint?: string | null;
 };
 
 /** Find a Zoho Contact by email, or create one. Returns the contact id. */
@@ -60,7 +62,7 @@ const upsertProduct = async (item: CartItem): Promise<string> => {
 export const syncOrderToZoho = async (params: SyncParams): Promise<string | null> => {
   if (!ZOHO_ENABLED) return null;
 
-  const { data, cart, total, currency, orderNumber, utmSource, coupon } = params;
+  const { data, cart, total, currency, orderNumber, utmSource, coupon, deviceFingerprint } = params;
 
   // Idempotency: don't create a duplicate if this order was already pushed.
   const already = await zohoSearchId('Sales_Orders', 'Order_ID_in_WP', orderNumber);
@@ -109,6 +111,7 @@ export const syncOrderToZoho = async (params: SyncParams): Promise<string | null
 
   if (utmSource) order.UTM_Source = utmSource;
   if (coupon) order.Code_Coupon = coupon;
+  if (deviceFingerprint) order.Device_fingerprint = deviceFingerprint;
 
   return zohoCreate('Sales_Orders', order);
 };

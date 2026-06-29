@@ -17,8 +17,10 @@ import { PhoneField } from '@/shared/ui/kit/phone-field';
 import { Text } from '@/shared/ui/kit/text/Text';
 import { Title } from '@/shared/ui/kit/title/Title';
 
+import { checkOrderBlocked } from '../../api/check-blocked';
 import { postOrder } from '../../api/post-order';
 import { useCheckoutQueryParams } from '../../lib/use-checkout-query-params';
+import { useDeviceFingerprint } from '../../lib/use-device-fingerprint';
 import { type CheckoutFormSchema, checkoutFormSchema } from '../../model/schema';
 import { useCartStore } from '../../model/store';
 import styles from './Checkout.module.scss';
@@ -58,6 +60,10 @@ export const Checkout = () => {
 
   // Detected on the client only (see hook) to avoid an SSR hydration mismatch.
   const countryCode = useClientCountryCode();
+
+  // Device visitor ID from FingerprintJS Pro, attached to the order as a fraud
+  // signal. Resolves asynchronously; null until ready (and on any agent error).
+  const deviceFingerprint = useDeviceFingerprint();
 
   // Always derive the cart total from the items themselves — the store keeps a
   // separate running `total` that can drift out of sync, so we never trust it
@@ -124,6 +130,7 @@ export const Checkout = () => {
       const result = await postOrder(data, effectiveTotal, cart, currency, {
         utmSource,
         coupon: coupon?.code,
+        deviceFingerprint,
       });
 
       // A brand-new guest account is logged in automatically by postOrder.
@@ -157,9 +164,21 @@ export const Checkout = () => {
     }
     setOrderError(null);
 
+    // Silently reject checkouts whose email or IP is on the Google Sheets block
+    // list. Neutral error (same as blocked countries); fails open on any error.
+    setIsLoading(true);
+    if (await checkOrderBlocked(data.email)) {
+      setIsLoading(false);
+      setOrderError(
+        t('orderUnavailable', {
+          fallback: "Sorry, we're unable to process your order at this time.",
+        })
+      );
+      return;
+    }
+
     // Verify the email is deliverable via Hunter before creating an order.
     // Whitelisted addresses and Hunter outages pass through (see validateEmail).
-    setIsLoading(true);
     const emailCheck = await validateEmail(data.email);
     if (!emailCheck.valid) {
       setIsLoading(false);

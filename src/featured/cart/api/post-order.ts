@@ -19,6 +19,7 @@ import {
 
 import type { CheckoutFormSchema } from '../model/schema';
 import type { CartItem } from '../model/types';
+import { checkOrderBlocked } from './check-blocked';
 import { syncOrderToZoho } from './zoho/sync-order';
 
 import { login } from '@/core/user/api/login';
@@ -36,6 +37,8 @@ type OrderMeta = {
    * no browser session to attach the auth cookies to.
    */
   skipAutoLogin?: boolean;
+  /** FingerprintJS Pro device visitor ID captured at checkout (fraud signal). */
+  deviceFingerprint?: string | null;
 };
 
 export const postOrder = async (
@@ -55,6 +58,12 @@ export const postOrder = async (
   // client-side check was bypassed.
   if (isBlockedCountry(data.country)) {
     throw new Error('Orders are not available for the selected country.');
+  }
+
+  // Hard block: silently reject orders whose email/IP is on the Google Sheets
+  // block list, even if the client-side check was bypassed. Fails open.
+  if (await checkOrderBlocked(data.email)) {
+    throw new Error('Orders are not available at this time.');
   }
 
   // Customer-facing emails (registration credentials + order confirmation) are
@@ -148,6 +157,7 @@ export const postOrder = async (
     data.orderNotes || '',
     meta.coupon ? `Coupon: ${meta.coupon}\n` : '',
     meta.utmSource ? `UTM Source: ${meta.utmSource}\n` : '',
+    meta.deviceFingerprint ? `Device Fingerprint: ${meta.deviceFingerprint}\n` : '',
   ]
     .filter(Boolean)
     .join('\n');
@@ -264,6 +274,7 @@ export const postOrder = async (
       orderNumber,
       utmSource: meta.utmSource,
       coupon: meta.coupon,
+      deviceFingerprint: meta.deviceFingerprint,
     });
   } catch (error) {
     console.error('Failed to sync order to Zoho CRM:', error);
