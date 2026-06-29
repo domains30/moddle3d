@@ -8,7 +8,12 @@ import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 
 import { isBlockedCountry } from '@/shared/config/blocked-countries';
-import { convertToBase, formatPrice } from '@/shared/config/currencies';
+import {
+  BASE_CURRENCY,
+  convertToBase,
+  currencyForCountry,
+  formatPrice,
+} from '@/shared/config/currencies';
 import { filteredCountries } from '@/shared/lib/helpers/excludedCountries';
 import { useClientCountryCode } from '@/shared/lib/hooks/use-client-country';
 import { Button } from '@/shared/ui/kit/button/Button';
@@ -39,7 +44,7 @@ import { CurrencySelect } from '@/featured/currency/ui/CurrencySelect';
 
 export const Checkout = () => {
   const { cart, clearCart, coupon, utmSource } = useCartStore();
-  const { currency } = useCurrencyStore();
+  const { currency, setGeoCurrency } = useCurrencyStore();
   const { user, setUser } = useUserStore();
   const { open: openAuthPopup } = useAuthPopupStore();
   const t = useTranslations('checkout');
@@ -64,6 +69,14 @@ export const Checkout = () => {
   // Device visitor ID from FingerprintJS Pro, attached to the order as a fraud
   // signal. Resolves asynchronously; null until ready (and on any agent error).
   const deviceFingerprint = useDeviceFingerprint();
+
+  // Default the checkout currency from the IP-detected country: GBP for the UK,
+  // AUD for Australia, USD/CAD for the US/Canada, EUR everywhere else. Only sets
+  // a default — a currency the shopper picked manually is never overridden.
+  useEffect(() => {
+    if (!countryCode) return;
+    setGeoCurrency(currencyForCountry(countryCode) ?? BASE_CURRENCY);
+  }, [countryCode, setGeoCurrency]);
 
   // Always derive the cart total from the items themselves — the store keeps a
   // separate running `total` that can drift out of sync, so we never trust it

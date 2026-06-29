@@ -29,13 +29,15 @@ export const CURRENCY_LIST: CurrencyConfig[] = Object.values(CURRENCIES);
 export const POPULAR_CURRENCIES: CurrencyCode[] = ['EUR', 'USD', 'GBP'];
 
 /**
- * Maps an ISO 3166-1 alpha-2 country code to the currency used there. Lets the
- * selector promote a currency into the "Popular" group when the shopper picks a
- * matching country (e.g. choosing Canada surfaces CAD). Currencies that are
- * always popular don't need an entry — only the ones worth promoting do. When a
- * new currency is added (CHF, INR, …), map its countries here.
+ * Maps an ISO 3166-1 alpha-2 country code to the currency used there. Two uses:
+ * (1) the selector promotes a country's currency into the "Popular" group, and
+ * (2) checkout derives the default currency from the IP-detected country. Any
+ * country without an entry falls back to the base currency (EUR). When a new
+ * currency is added (CHF, INR, …), map its countries here.
  */
 export const COUNTRY_CURRENCY: Record<string, CurrencyCode> = {
+  GB: 'GBP',
+  US: 'USD',
   CA: 'CAD',
   AU: 'AUD',
 };
