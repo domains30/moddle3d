@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useTranslations } from 'next-intl';
 
-import { Facebook } from '@/shared/ui/icons';
+import { Facebook, Youtube } from '@/shared/ui/icons';
 
 import styles from './Footer.module.scss';
 
@@ -184,6 +184,13 @@ export const Footer = () => {
               rel="noopener noreferrer"
             >
               <Facebook />
+            </Link>
+            <Link
+              href="https://www.youtube.com/@Moddle3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Youtube />
             </Link>
           </div>
         </div>

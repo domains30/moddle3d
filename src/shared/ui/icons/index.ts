@@ -11,3 +11,4 @@ export * from './socials/facebook';
 export * from './socials/instagram';
 export * from './socials/linkedin';
 export * from './socials/x';
+export * from './socials/youtube';

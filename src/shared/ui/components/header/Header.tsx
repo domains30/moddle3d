@@ -9,7 +9,7 @@ import { useLenis } from 'lenis/react';
 import { useTranslations } from 'next-intl';
 
 import { cookies } from '@/shared/lib/utils/cookie';
-import { BurgerMenu, Cart, Facebook } from '@/shared/ui/icons';
+import { BurgerMenu, Cart, Facebook, Youtube } from '@/shared/ui/icons';
 
 import { LangSwitcher } from '../lang-switcher/LangSwitcher';
 import styles from './Header.module.scss';
@@ -72,6 +72,13 @@ export const Header = () => {
                     rel="noopener noreferrer"
                   >
                     <Facebook />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@Moddle3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Youtube />
                   </Link>
                 </div>
                 <div className={styles.contacts}>
@@ -182,6 +189,13 @@ export const Header = () => {
               rel="noopener noreferrer"
             >
               <Facebook />
+            </Link>
+            <Link
+              href="https://www.youtube.com/@Moddle3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Youtube />
             </Link>
           </div>
           <div className={styles.contacts}>

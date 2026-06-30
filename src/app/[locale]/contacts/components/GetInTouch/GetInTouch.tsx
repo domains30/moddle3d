@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import { fadeInUp } from '@/shared/lib/helpers/animations';
-import { Facebook } from '@/shared/ui/icons';
+import { Facebook, Youtube } from '@/shared/ui/icons';
 import { Text, Title } from '@/shared/ui/kit';
 
 import styles from './GetInTouch.module.scss';
@@ -120,6 +120,13 @@ export const GetInTouch = () => {
                     rel="noopener noreferrer"
                   >
                     <Facebook />
+                  </Link>
+                  <Link
+                    href="https://www.youtube.com/@Moddle3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Youtube />
                   </Link>
                 </div>
               </div>
