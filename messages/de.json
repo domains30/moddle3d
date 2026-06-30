@@ -174,6 +174,7 @@
     "country": "Land",
     "coupon": "Gutschein",
     "orderUnavailable": "Leider können wir Ihre Bestellung derzeit nicht bearbeiten.",
+    "invalidEmailDeliverability": "Bitte geben Sie eine gültige, zustellbare E-Mail-Adresse ein.",
     "phone": "Telefon",
     "email": "E-Mail",
     "emptyCart": "Huch! Ihr Warenkorb ist ein wenig leer...",

@@ -47,7 +47,12 @@ export const Cart = () => {
                     <Trash />
                   </button>
                   <div className={styles.item__image}>
-                    <Image src={item.image} alt={item.name} width={200} height={200} />
+                    <Image
+                      src={item.image || '/images/pricing.png'}
+                      alt={item.name}
+                      width={200}
+                      height={200}
+                    />
                   </div>
                   <div className={styles.item__content}>
                     <h3>{item.name}</h3>

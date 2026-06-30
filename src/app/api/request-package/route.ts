@@ -4,6 +4,8 @@ import sgMail from '@sendgrid/mail';
 
 import { EMAIL_FROM } from '@/shared/config/env';
 
+import { requestReceivedBody } from '@/featured/email-letters/request-received-body';
+
 type ContactRequestData = {
   firstName: string;
   lastName: string;
@@ -38,18 +40,25 @@ export async function POST(request: Request): Promise<NextResponse> {
       `,
     };
 
-    // Send email
+    // Notify the admin of the new request.
     await sgMail.send(msg);
 
-    /*const clientMSG = {
-      to: email, // Your admin email address
-      from: process.env.FROM_EMAIL!, // Verified sender email
-      subject: 'Tanzora Request Received',
-      html: `
-      `,
-    };
-
-    await sgMail.send(clientMSG);*/
+    // Confirm to the customer that we received their request and let them know
+    // what details we need next. Isolated so a failed customer email never
+    // breaks the admin notification above.
+    try {
+      await sgMail.send({
+        to: email,
+        from: EMAIL_FROM,
+        subject: 'Moddle 3D: We have received your request',
+        html: requestReceivedBody({
+          username: firstName,
+          packageName,
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to send request confirmation email to customer:', error);
+    }
 
     return NextResponse.json({ message: 'Fund access request sent successfully.' });
   } catch (error: unknown) {

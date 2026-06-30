@@ -298,6 +298,7 @@
     "total": "Total",
     "coupon": "Coupon",
     "orderUnavailable": "Sorry, we're unable to process your order at this time.",
+    "invalidEmailDeliverability": "Please enter a valid, deliverable email address.",
     "loading": "Loading...",
     "checkout": "Submit",
     "termsAndConditions": "I have read and agree to the website’s <link>Terms and Conditions</link>.",

@@ -18,7 +18,7 @@ import {
 } from '@/shared/config/env';
 
 import type { CheckoutFormSchema } from '../model/schema';
-import type { CartItem } from '../model/types';
+import type { CartItem, CartItemType } from '../model/types';
 import { checkOrderBlocked } from './check-blocked';
 import { syncOrderToZoho } from './zoho/sync-order';
 
@@ -123,17 +123,27 @@ export const postOrder = async (
 
   const items = await Promise.all(
     cart.map(async (item) => {
+      // Legacy carts (and product cards) carry no `type` — default to products.
+      const collection: CartItemType = item.type ?? 'products';
       try {
-        const productDetails = await validateAndGetProductDetails(item.id);
+        const productDetails = await validateAndGetItemDetails(item.id, collection);
 
         if (!productDetails) {
-          throw new Error(`Product with ID ${item.id} not found`);
+          throw new Error(`${collection} item with ID ${item.id} not found`);
         }
 
-        const { fileurl, filename } = await getFileUrlForProduct(item.id);
+        // Only catalogue products carry a downloadable file; pricing packages
+        // are a service and have nothing to attach.
+        const { fileurl, filename } =
+          collection === 'products'
+            ? await getFileUrlForProduct(item.id)
+            : { fileurl: null, filename: null };
 
         return {
-          product: productDetails.id,
+          // Polymorphic relationship: the Orders `product` field points at
+          // either `products` or `pricing-packages`, so it needs the
+          // `{ relationTo, value }` shape rather than a bare id.
+          product: { relationTo: collection, value: productDetails.id },
           quantity: item.quantity,
           price: item.price,
           file_url: fileurl,
@@ -142,7 +152,7 @@ export const postOrder = async (
       } catch (error) {
         console.error(`Error processing item ${item.id}:`, error);
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-        throw new Error(`Invalid product: ${item.id} - ${errorMessage}`);
+        throw new Error(`Invalid item: ${item.id} - ${errorMessage}`);
       }
     })
   );
@@ -326,9 +336,12 @@ export const createUser = async (data: CheckoutFormSchema, password: string) => 
   return response.json();
 };
 
-const validateAndGetProductDetails = async (productId: string | number) => {
+const validateAndGetItemDetails = async (
+  productId: string | number,
+  collection: CartItemType = 'products'
+) => {
   try {
-    console.log(`Validating product ID: "${productId}" (type: ${typeof productId})`);
+    console.log(`Validating ${collection} ID: "${productId}" (type: ${typeof productId})`);
 
     // Convert to string and sanitize the product ID - remove any extra spaces or invalid characters
     const sanitizedProductId = String(productId).trim();
@@ -336,18 +349,18 @@ const validateAndGetProductDetails = async (productId: string | number) => {
 
     // Encode the product ID to handle special characters
     const encodedProductId = encodeURIComponent(sanitizedProductId);
-    const url = `${SERVER_URL}/api/products/${encodedProductId}`;
+    const url = `${SERVER_URL}/api/${collection}/${encodedProductId}`;
 
-    console.log('Validating product details from:', url);
+    console.log('Validating item details from:', url);
 
     const res = await fetch(url);
 
     if (!res.ok) {
-      console.error(`HTTP error! status: ${res.status} for product id: ${productId}`);
+      console.error(`HTTP error! status: ${res.status} for ${collection} id: ${productId}`);
 
       // If the direct ID lookup fails, try to search by title
       console.log('Trying to search by title as fallback...');
-      const searchUrl = `${SERVER_URL}/api/products?where[title][equals]=${encodeURIComponent(sanitizedProductId)}`;
+      const searchUrl = `${SERVER_URL}/api/${collection}?where[title][equals]=${encodeURIComponent(sanitizedProductId)}`;
       console.log('Searching by title:', searchUrl);
 
       const searchRes = await fetch(searchUrl);
