@@ -2,13 +2,21 @@
 
 import { EMAIL_VALIDATION_WHITELIST, HUNTER_API_KEY, HUNTER_ENABLED } from '@/shared/config/env';
 
-export type EmailValidationReason = 'undeliverable' | 'disposable' | 'invalid';
+export type EmailValidationReason = 'undeliverable' | 'disposable' | 'invalid' | 'special_chars';
 
 export type EmailValidationResult = {
   /** Whether the address may be used to place an order. */
   valid: boolean;
   /** Why it was rejected (only set when `valid` is false). */
   reason?: EmailValidationReason;
+};
+
+const hasSpecialCharsInEmail = (email: string): boolean => {
+  const localPart = email.split('@')[0] ?? '';
+
+  // allowed: a-z A-Z 0-9 . _ -
+  // everything else => true (means that was found unallowed chars)
+  return /[^a-zA-Z0-9._-]/.test(localPart);
 };
 
 /** Parse the configured whitelist into normalized entries. */
@@ -49,6 +57,16 @@ const BLOCKED_STATUSES = new Set(['disposable', 'invalid']);
  * outage never blocks a sale. Whitelisted addresses skip Hunter entirely.
  */
 export const validateEmail = async (email: string): Promise<EmailValidationResult> => {
+  const normalizedEmail = email.trim().toLowerCase();
+  
+  // check for unallowed chars
+  if (hasSpecialCharsInEmail(normalizedEmail)) {
+    return {
+      valid: false,
+      reason: 'special_chars',
+    };
+  }
+  
   if (!HUNTER_ENABLED || isWhitelisted(email)) {
     return { valid: true };
   }
