@@ -28,6 +28,13 @@ import { orderConfirmBody } from '@/featured/email-letters/order-confirm-body';
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
+/**
+ * Master switch for the Zoho CRM integration. Set to `true` to resume pushing
+ * orders into Zoho; while `false` the sync is skipped entirely (orders are
+ * still created and emails still sent).
+ */
+const ZOHO_INTEGRATION_ENABLED = false;
+
 type OrderMeta = {
   utmSource?: string | null;
   coupon?: string | null;
@@ -274,20 +281,23 @@ export const postOrder = async (
   }
 
   // Push the order into Zoho CRM. Isolated so a Zoho failure never breaks a
-  // successfully placed order.
-  try {
-    await syncOrderToZoho({
-      data,
-      cart,
-      total,
-      currency,
-      orderNumber,
-      utmSource: meta.utmSource,
-      coupon: meta.coupon,
-      deviceFingerprint: meta.deviceFingerprint,
-    });
-  } catch (error) {
-    console.error('Failed to sync order to Zoho CRM:', error);
+  // successfully placed order. Gated behind ZOHO_INTEGRATION_ENABLED so the
+  // integration can be turned off without removing the code.
+  if (ZOHO_INTEGRATION_ENABLED) {
+    try {
+      await syncOrderToZoho({
+        data,
+        cart,
+        total,
+        currency,
+        orderNumber,
+        utmSource: meta.utmSource,
+        coupon: meta.coupon,
+        deviceFingerprint: meta.deviceFingerprint,
+      });
+    } catch (error) {
+      console.error('Failed to sync order to Zoho CRM:', error);
+    }
   }
 
   const order = await response.json();
