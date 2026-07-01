@@ -12,7 +12,6 @@ type ContactRequestData = {
   email: string;
   phone: string;
   message?: string;
-  estimatedBudget?: string;
   packageName?: string;
 };
 
@@ -20,7 +19,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   try {
     const bodyJSON = (await request.json()) as ContactRequestData;
     console.log(bodyJSON);
-    const { firstName, lastName, email, phone, message, estimatedBudget, packageName } = bodyJSON;
+    const { firstName, lastName, email, phone, message, packageName } = bodyJSON;
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
@@ -34,7 +33,6 @@ export async function POST(request: Request): Promise<NextResponse> {
         <p><strong>Last Name:</strong> ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Estimated Budget:</strong> ${estimatedBudget}</p>
         <p><strong>Package:</strong> ${packageName}</p>
         ${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
       `,

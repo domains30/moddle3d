@@ -7,7 +7,6 @@ export const requestFormSchema = z.object({
   phone: z.string().min(1, { message: 'This field must be filled.' }),
   message: z.string().optional(),
   package: z.string().optional(),
-  estimatedBudget: z.string().optional(),
 });
 
 export type RequestFormSchema = z.infer<typeof requestFormSchema>;

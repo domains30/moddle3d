@@ -103,20 +103,6 @@ export const RequestPackagePopup = () => {
             />
           </div>
           <div
-            className={`${styles.inputWrapper} ${styles.full} ${errors.estimatedBudget ? styles.error : ''}`}
-          >
-            {errors.estimatedBudget && (
-              <p className={styles.error}>{errors.estimatedBudget.message}</p>
-            )}
-            <input
-              {...register('estimatedBudget')}
-              placeholder={t('estimatedBudget', {
-                fallback: 'Estimated Budget',
-              })}
-              type="number"
-            />
-          </div>
-          <div
             className={`${styles.inputWrapper} ${styles.full} ${errors.message ? styles.error : ''}`}
           >
             {errors.message && <p className={styles.error}>{errors.message.message}</p>}
