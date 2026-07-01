@@ -199,7 +199,7 @@
   },
   "thankyouPage": {
     "title": "Woohoo! Your Order is In!",
-    "description": "We’re processing your order. Within a few minutes, you should receive an email with your account credentials and order details. Didn’t receive anything? Check your spam folder. Still can’t find it? Contact us at <mail>info@moddle3d.com</mail> and we’ll gladly help you!",
+    "description": "We’re processing your order. Within a few minutes, you should receive an email with your account credentials and order details. Didn’t receive anything? Check your spam folder. Still can’t find it? Contact us at <mail>support@moddle3d.com</mail> and we’ll gladly help you!",
     "button": "Home"
   },
   "trendsHero": {

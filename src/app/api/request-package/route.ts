@@ -25,7 +25,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
     const msg = {
-      to: [process.env.ADMIN_EMAIL!, 'support@moddle3d.com'],
+      to: [process.env.ADMIN_EMAIL!],
       from: EMAIL_FROM,
       subject: 'New package request',
       html: `

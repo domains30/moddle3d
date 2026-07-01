@@ -60,9 +60,9 @@ export const GetInTouch = () => {
                     </Link>
                   </div>
                   <div>
-                    <Link href="mailto:info@moddle3d.com" className={styles.contactWrapper}>
+                    <Link href="mailto:support@moddle3d.com" className={styles.contactWrapper}>
                       <Image src="/images/email.svg" alt="email" width={20} height={20} />
-                      <span className={styles.contact}>info@moddle3d.com</span>
+                      <span className={styles.contact}>support@moddle3d.com</span>
                     </Link>
                   </div>
                   <div className={styles.addressItem}>

@@ -34,7 +34,7 @@ export default function ThankYouPage() {
             {t.rich('description', {
               mail: (chunks) => (
                 <a
-                  href="mailto:info@moddle3d.com"
+                  href="mailto:support@moddle3d.com"
                   style={{ color: '#2583FF', textDecoration: 'underline' }}
                 >
                   {chunks}

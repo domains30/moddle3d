@@ -157,8 +157,8 @@ export const Footer = () => {
                 </div>
                 */}
                 <div>
-                  <Link href="mailto:info@moddle3d.com" className={styles.link}>
-                    info@moddle3d.com
+                  <Link href="mailto:support@moddle3d.com" className={styles.link}>
+                    support@moddle3d.com
                   </Link>
                 </div>
                 <div>

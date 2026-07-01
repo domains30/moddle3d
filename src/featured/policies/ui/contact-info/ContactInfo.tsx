@@ -21,7 +21,7 @@ export const ContactInfo = ({ description, title }: { title: string; description
         <MessageIcon />
         <p>
           {t('email', { fallback: 'Email' })}:{' '}
-          <Link href="mailto:info@moddle3d.com">info@moddle3d.com</Link>
+          <Link href="mailto:support@moddle3d.com">support@moddle3d.com</Link>
         </p>
       </span>
       <span className={st.item}>
